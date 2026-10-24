@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pasutri Love Hub: Ultimate Spicy & Intimate Suite</title>
+    <title>Love Hub: Ultimate Spicy & Intimate Suite</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -114,7 +114,7 @@
                     <img src="logo.png" alt="Logo" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'💋',className:'text-xl'}))">
                 </div>
                 <div>
-                    <h1 class="font-serif text-xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Pasutri Love Hub 💋</h1>
+                    <h1 class="font-serif text-xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Love Games 💋</h1>
                     <p class="text-xs text-romantic-300 font-medium">Bagus & Bunga Exclusive Suite</p>
                 </div>
             </button>
@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- 1. Ular Tangga Pasutri -->
+                    <!-- 1. Ular Tangga Hot -->
                     <button type="button" onclick="launchGame('snake')" class="group glass-card rounded-3xl p-6 border border-romantic-500/30 hover:border-romantic-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-romantic-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-romantic-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
                         <div>
@@ -209,7 +209,7 @@
                                 <img src="snake-love.png" alt="Ular Tangga" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎲',className:'text-2xl'}))">
                             </div>
                             <div class="inline-block bg-romantic-500/20 text-romantic-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">🔥 Hot Tantangan</div>
-                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-romantic-300 transition">Ular Tangga Pasutri Hot</h4>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-romantic-300 transition">Ular Tangga Hot</h4>
                             <p class="text-slate-300 text-xs leading-relaxed mb-4">
                                 Papan 36 kotak dengan pion interaktif, dadu putar, dan kotak tantangan foreplay intim.
                             </p>
@@ -258,7 +258,7 @@
                         </div>
                     </button>
 
-                    <!-- 4. Kuis Kecocokan Pasutri -->
+                    <!-- 4. Kuis Kecocokan -->
                     <button type="button" onclick="launchGame('quiz')" class="group glass-card rounded-3xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-emerald-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
                         <div>
@@ -318,7 +318,7 @@
             </div>
         </div>
 
-        <!-- TAB 2: GAME ULAR TANGGA PASUTRI -->
+        <!-- TAB 2: GAME ULAR TANGGA HOT -->
         <div id="tab-snake" class="hidden space-y-6">
             <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex-wrap gap-3">
                 <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
@@ -326,7 +326,7 @@
                     <span>Kembali ke Menu</span>
                 </button>
                 <div class="text-center">
-                    <h3 class="font-serif text-xl font-bold text-romantic-300">Ular Tangga Pasutri Hot 🎲</h3>
+                    <h3 class="font-serif text-xl font-bold text-romantic-300">Ular Tangga Hot 🎲</h3>
                     <p class="text-xs text-slate-400" id="snakeInstructionBanner">Giliran: <span id="currentTurnName" class="font-bold text-romantic-400">Bagus</span> (Lempar Dadu Terlebih Dahulu!)</p>
                 </div>
                 <button type="button" onclick="resetSnakeGame()" class="px-4 py-2 rounded-xl bg-romantic-600/20 border border-romantic-500/40 hover:bg-romantic-600/30 text-xs font-bold text-romantic-300 transition cursor-pointer">
@@ -504,7 +504,7 @@
                 <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
                     <span>⬅️</span><span>Kembali ke Menu</span>
                 </button>
-                <h3 class="font-serif text-xl font-bold text-emerald-300">Kuis Kecocokan Pasutri 📋</h3>
+                <h3 class="font-serif text-xl font-bold text-emerald-300">Kuis Kecocokan 📋</h3>
                 <div></div>
             </div>
 
@@ -1067,7 +1067,7 @@
             if (finalPos === 36) {
                 const winner = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
                 triggerLoveBomb();
-                alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA PASUTRI! +50 Bonus Love Coins!`);
+                alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA HOT! +50 Bonus Love Coins!`);
                 if (gameState.turn === 1) gameState.p1Coins += 50; else gameState.p2Coins += 50;
                 resetSnakeGame();
                 return;
