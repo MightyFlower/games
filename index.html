@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasutri Love Hub: Ultimate Spicy & Intimate Suite</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        romantic: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            800: '#9f1239',
+                            900: '#881337',
+                            950: '#4c0519',
+                        },
+                        spicy: {
+                            500: '#ff2a5f',
+                            600: '#e01141',
+                            700: '#b3002d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Confetti JS -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1b4b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f43f5e;
+            border-radius: 4px;
+        }
+        .glass-card {
+            background: rgba(30, 27, 75, 0.55);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(244, 63, 94, 0.35);
+        }
+        .glass-spicy {
+            background: rgba(76, 5, 25, 0.65);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 42, 95, 0.6);
+            box-shadow: 0 0 35px rgba(244, 63, 94, 0.4);
+        }
+        .glass-modal {
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+        @keyframes diceSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); filter: brightness(1.3); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+        .dice-spinning {
+            animation: diceSpin 0.3s infinite linear;
+        }
+        .wheel-anim {
+            transition: transform 3s cubic-bezier(0.15, 0.95, 0.15, 1);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(244, 63, 94, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(255, 42, 95, 0.85); }
+        }
+        .glow-spicy {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+        .custom-icon {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-romantic-500 selection:text-white pb-20 relative">
+
+    <!-- Background Silhouette Layer -->
+    <div class="fixed inset-0 z-0 pointer-events-none opacity-25 bg-cover bg-center" style="background-image: url('background.jpg');"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none bg-gradient-to-br from-slate-950/60 via-rose-950/50 to-indigo-950/60"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-card border-b border-romantic-500/20 px-4 py-3 shadow-xl">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+            <!-- Brand / Logo -->
+            <button type="button" onclick="switchTab('hub')" class="flex items-center space-x-3 cursor-pointer text-left bg-transparent border-0 p-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-romantic-600 to-spicy-500 flex items-center justify-center shadow-lg shadow-romantic-500/40 p-1.5">
+                    <img src="logo.png" alt="Logo" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'💋',className:'text-xl'}))">
+                </div>
+                <div>
+                    <h1 class="font-serif text-xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Pasutri Love Hub 💋</h1>
+                    <p class="text-xs text-romantic-300 font-medium">Bagus & Bunga Exclusive Suite</p>
+                </div>
+            </button>
+
+            <!-- Player Profiles & Stats -->
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center bg-slate-900/80 border border-slate-700/60 rounded-full px-3 py-1.5 shadow-inner">
+                    <span id="navP1Badge" class="w-3 h-3 rounded-full bg-cyan-400 mr-2 shadow-sm"></span>
+                    <span id="navP1Name" class="text-xs font-semibold mr-2 truncate max-w-[80px]">Bagus</span>
+                    <span class="text-xs bg-slate-800 px-2 py-0.5 rounded-full text-cyan-300 font-bold border border-cyan-500/30" id="navP1Score">0 pts</span>
+                </div>
+                <div class="flex items-center bg-slate-900/80 border border-slate-700/60 rounded-full px-3 py-1.5 shadow-inner">
+                    <span id="navP2Badge" class="w-3 h-3 rounded-full bg-pink-400 mr-2 shadow-sm"></span>
+                    <span id="navP2Name" class="text-xs font-semibold mr-2 truncate max-w-[80px]">Bunga</span>
+                    <span class="text-xs bg-slate-800 px-2 py-0.5 rounded-full text-pink-300 font-bold border border-pink-500/30" id="navP2Score">0 pts</span>
+                </div>
+                <!-- Love Coins Display -->
+                <button type="button" onclick="switchTab('rewards')" class="cursor-pointer flex items-center bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/40 rounded-full px-3.5 py-1.5 hover:border-amber-400 transition shadow-lg shadow-amber-500/10 text-left" title="Klik untuk tukar koin">
+                    <span class="text-amber-400 mr-1.5">🪙</span>
+                    <span id="globalLoveCoins" class="text-xs font-bold text-amber-300">0</span>
+                    <span class="text-[10px] text-amber-400/80 ml-1">Coins</span>
+                </button>
+            </div>
+
+            <!-- Quick Action Buttons -->
+            <div class="flex items-center space-x-2">
+                <button type="button" onclick="openSettingsModal()" class="p-2 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-300 hover:text-white hover:bg-slate-800 transition cursor-pointer" title="Pengaturan & Profil">⚙️</button>
+                <button type="button" onclick="toggleAudio()" id="soundToggleBtn" class="p-2 rounded-xl bg-slate-900/80 border border-slate-700 text-romantic-400 hover:text-white hover:bg-slate-800 transition cursor-pointer" title="Sound FX"><span id="soundIcon">🔊</span></button>
+                <button type="button" onclick="toggleBGM()" id="bgmToggleBtn" class="px-3 py-1.5 rounded-xl bg-slate-900/90 border border-romantic-500/40 hover:bg-slate-800 text-romantic-300 text-xs font-bold transition flex items-center space-x-1.5 cursor-pointer">
+                    <span id="bgmIcon" class="animate-spin" style="animation-duration: 4s;">🎵</span>
+                    <span id="bgmLabel">BGM: Off</span>
+                </button>
+                <button type="button" onclick="triggerLoveBomb()" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-romantic-600 to-spicy-600 hover:from-romantic-500 hover:to-spicy-500 text-white text-xs font-bold shadow-lg shadow-romantic-600/30 transition flex items-center space-x-1.5 cursor-pointer">
+                    <span>🔥</span>
+                    <span>Love Bomb</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-6 relative z-10">
+
+        <!-- TAB 1: GAME HUB (Menu Utama) -->
+        <div id="tab-hub" class="space-y-8">
+            <!-- Hero Banner -->
+            <div class="relative rounded-3xl overflow-hidden glass-spicy p-6 md:p-10 border border-romantic-500/40 shadow-2xl glow-spicy">
+                <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-romantic-600/30 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -left-10 -top-10 w-80 h-80 bg-rose-600/30 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10 max-w-2xl space-y-4">
+                    <div class="inline-flex items-center space-x-2 bg-romantic-500/20 border border-romantic-500/40 px-3 py-1 rounded-full text-romantic-200 text-xs font-semibold">
+                        <span>🍷</span>
+                        <span>Spesial Bagus & Bunga — Edisi Siluet Seni Sensual</span>
+                    </div>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold leading-tight">Malam Penuh Gairah & Keintiman Tanpa Batas 🔥</h2>
+                    <p class="text-slate-200 text-sm md:text-base leading-relaxed">
+                        Eksplorasi hasrat terdalam dengan kartu Truth or Dare Hot, Ular Tangga Tantangan Fisik, Spin Wheel Sensual, dan Mode Godaan Kilat bernuansa seni siluet tubuh yang menggoda!
+                    </p>
+                    <div class="pt-2 flex flex-wrap gap-3">
+                        <button type="button" onclick="launchGame('snake')" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-romantic-600 to-spicy-600 hover:from-romantic-500 hover:to-spicy-500 text-white font-bold shadow-lg shadow-romantic-600/40 transition flex items-center space-x-2 cursor-pointer">
+                            <span>🎲</span>
+                            <span>Main Ular Tangga Hot</span>
+                        </button>
+                        <button type="button" onclick="launchGame('tod')" class="px-6 py-3 rounded-2xl bg-slate-900/90 border border-romantic-500/50 hover:bg-slate-800 text-romantic-200 font-bold transition flex items-center space-x-2 cursor-pointer">
+                            <span>💋</span>
+                            <span>Truth or Dare Spicy</span>
+                        </button>
+                        <button type="button" onclick="openSeductionPopup()" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-600 to-rose-600 hover:from-amber-500 hover:to-rose-500 text-white font-bold shadow-lg shadow-amber-600/30 transition flex items-center space-x-2 cursor-pointer">
+                            <span>🔥</span>
+                            <span>Godaan Kilat Malam Ini</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game Grid Menu -->
+            <div>
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="font-serif text-2xl font-bold flex items-center space-x-2">
+                        <span>✨</span>
+                        <span>Suite Permainan & Fitur Spesial Intim</span>
+                    </h3>
+                    <span class="text-xs text-slate-400 font-medium">Pilih menu untuk mulai mengeksplorasi</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 1. Ular Tangga Pasutri -->
+                    <button type="button" onclick="launchGame('snake')" class="group glass-card rounded-3xl p-6 border border-romantic-500/30 hover:border-romantic-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-romantic-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-romantic-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-romantic-600 to-spicy-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-romantic-600/40 group-hover:rotate-6 transition p-2">
+                                <img src="snake-love.png" alt="Ular Tangga" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎲',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-romantic-500/20 text-romantic-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">🔥 Hot Tantangan</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-romantic-300 transition">Ular Tangga Pasutri Hot</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Papan 36 kotak dengan pion interaktif, dadu putar, dan kotak tantangan foreplay intim.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-romantic-400 group-hover:translate-x-1 transition">
+                            <span>Mulai Bermain</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+
+                    <!-- 2. Truth or Dare Hub -->
+                    <button type="button" onclick="launchGame('tod')" class="group glass-spicy rounded-3xl p-6 hover:shadow-2xl hover:shadow-spicy-600/30 transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col justify-between glow-spicy text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/20 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-spicy-600 to-pink-600 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-spicy-600/50 group-hover:rotate-6 transition p-2">
+                                <img src="tod.png" alt="Truth or Dare" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'💋',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-spicy-500/30 text-rose-200 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">💋 Ratusan Kartu Spicy</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-rose-200 transition">Truth or Dare Spicy & Hot</h4>
+                            <p class="text-slate-200 text-xs leading-relaxed mb-4">
+                                Koleksi super banyak pertanyaan rahasia dewasa dan tantangan fisik panas untuk memperdalam gairah malam ini.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-rose-900/60 text-xs font-semibold text-rose-300 group-hover:translate-x-1 transition">
+                            <span>Mainkan Truth/Dare</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+
+                    <!-- 3. Spin Wheel Keberuntungan -->
+                    <button type="button" onclick="launchGame('wheel')" class="group glass-card rounded-3xl p-6 border border-amber-500/30 hover:border-amber-400 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-amber-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-600 to-yellow-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-amber-600/40 group-hover:rotate-6 transition p-2">
+                                <img src="wheel.png" alt="Spin Wheel" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🍷',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-amber-500/20 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">✨ Putar & Sentuh</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-amber-300 transition">Spin Wheel Sentuhan Malam</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Roda berputar interaktif nyata secara animasi untuk menentukan aksi sentuhan intim malam ini.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-amber-400 group-hover:translate-x-1 transition">
+                            <span>Putar Roda</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+
+                    <!-- 4. Kuis Kecocokan Pasutri -->
+                    <button type="button" onclick="launchGame('quiz')" class="group glass-card rounded-3xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-emerald-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-emerald-600/40 group-hover:rotate-6 transition p-2">
+                                <img src="brainlove.png" alt="Kuis" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🧠',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-emerald-500/20 text-emerald-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">💡 Seberapa Kenal?</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-emerald-300 transition">Kuis Kecocokan Hubungan</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Jawab pertanyaan rahasia tentang Bagus & Bunga dan uji tingkat keserasian dengan tombol ulangi kuis yang responsif.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-emerald-400 group-hover:translate-x-1 transition">
+                            <span>Mulai Kuis</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+
+                    <!-- 5. Misi Rahasia & Love Vouchers -->
+                    <button type="button" onclick="switchTab('rewards')" class="group glass-card rounded-3xl p-6 border border-pink-500/30 hover:border-pink-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-pink-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-pink-600/40 group-hover:rotate-6 transition p-2">
+                                <img src="voucher.png" alt="Vouchers" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎟️',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-pink-500/20 text-pink-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">💎 Reward Eksklusif</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-pink-300 transition">Love Vouchers & Tukar Coins</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Puluhan voucher intim spesial (pijat sensual, hak veto malam ini, breakfast in bed) yang bisa ditukar dengan Love Coins!
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-pink-400 group-hover:translate-x-1 transition">
+                            <span>Buka Voucher</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+
+                    <!-- 6. Love Notes & Timer -->
+                    <button type="button" onclick="openTimerModal()" class="group glass-card rounded-3xl p-6 border border-cyan-500/30 hover:border-cyan-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-cyan-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-600 to-blue-500 flex items-center justify-center text-white text-2xl mb-4 shadow-lg shadow-cyan-600/40 group-hover:rotate-6 transition p-2">
+                                <img src="timerlove.png" alt="Timer" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'⏳',className:'text-2xl'}))">
+                            </div>
+                            <div class="inline-block bg-cyan-500/20 text-cyan-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">⏱️ Statistik Cinta</div>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-cyan-300 transition">Love Timer Kustom & Catatan</h4>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Atur tanggal spesial Bagus & Bunga sendiri, hitung durasi kebersamaan secara akurat, dan simpan pesan cinta rahasia.
+                            </p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-800 text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition">
+                            <span>Cek Timer & Notes</span>
+                            <span>➡️</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: GAME ULAR TANGGA PASUTRI -->
+        <div id="tab-snake" class="hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex-wrap gap-3">
+                <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
+                    <span>⬅️</span>
+                    <span>Kembali ke Menu</span>
+                </button>
+                <div class="text-center">
+                    <h3 class="font-serif text-xl font-bold text-romantic-300">Ular Tangga Pasutri Hot 🎲</h3>
+                    <p class="text-xs text-slate-400" id="snakeInstructionBanner">Giliran: <span id="currentTurnName" class="font-bold text-romantic-400">Bagus</span> (Lempar Dadu Terlebih Dahulu!)</p>
+                </div>
+                <button type="button" onclick="resetSnakeGame()" class="px-4 py-2 rounded-xl bg-romantic-600/20 border border-romantic-500/40 hover:bg-romantic-600/30 text-xs font-bold text-romantic-300 transition cursor-pointer">
+                    🔄 Reset Papan
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Papan Ular Tangga -->
+                <div class="lg:col-span-2 glass-card rounded-3xl p-4 md:p-6 border border-romantic-500/30 flex flex-col items-center justify-center relative overflow-hidden">
+                    <div class="flex flex-wrap gap-3 mb-4 text-[11px] justify-center">
+                        <span class="px-2.5 py-1 rounded-full bg-romantic-500/20 border border-romantic-500/40 text-romantic-300 font-semibold">🔥 Kotak Hot & Tantangan</span>
+                        <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-semibold">🪜 Tangga Cinta (Naik)</span>
+                        <span class="px-2.5 py-1 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-300 font-semibold">🐍 Ular Rayuan (Turun)</span>
+                    </div>
+
+                    <div id="snakeBoard" class="grid grid-cols-6 gap-2 w-full max-w-xl bg-slate-950/80 p-3 rounded-2xl border border-slate-800 shadow-2xl">
+                        <!-- Generated via JS -->
+                    </div>
+                </div>
+
+                <!-- Kontrol & Dadu -->
+                <div class="glass-card rounded-3xl p-6 border border-romantic-500/30 flex flex-col justify-between space-y-6">
+                    <div class="space-y-4">
+                        <h4 class="font-serif text-lg font-bold border-b border-slate-800 pb-2">Status Pemain</h4>
+                        
+                        <div id="p1Card" class="p-4 rounded-2xl bg-slate-900/80 border-2 border-cyan-400 shadow-md transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-slate-950 text-xs font-bold shadow p-1">
+                                        <img src="dick.png" alt="P1" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🤵',className:'text-xs'}))">
+                                    </div>
+                                    <span id="labelP1Name" class="font-bold text-sm">Bagus</span>
+                                </div>
+                                <span class="text-xs bg-cyan-500/20 text-cyan-300 font-bold px-2 py-0.5 rounded">Posisi: <span id="p1Pos">1</span></span>
+                            </div>
+                            <div class="text-xs text-slate-400 flex justify-between">
+                                <span>Skor: <strong class="text-cyan-300" id="p1ScoreVal">0</strong> pts</span>
+                                <span>Love Coins: <strong class="text-amber-300" id="p1Coins">0</strong></span>
+                            </div>
+                        </div>
+
+                        <div id="p2Card" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-7 h-7 rounded-full bg-pink-500 flex items-center justify-center text-slate-950 text-xs font-bold shadow p-1">
+                                        <img src="vagina.png" alt="P2" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'👰',className:'text-xs'}))">
+                                    </div>
+                                    <span id="labelP2Name" class="font-bold text-sm">Bunga</span>
+                                </div>
+                                <span class="text-xs bg-pink-500/20 text-pink-300 font-bold px-2 py-0.5 rounded">Posisi: <span id="p2Pos">1</span></span>
+                            </div>
+                            <div class="text-xs text-slate-400 flex justify-between">
+                                <span>Skor: <strong class="text-pink-300" id="p2ScoreVal">0</strong> pts</span>
+                                <span>Love Coins: <strong class="text-amber-300" id="p2Coins">0</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 text-center">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Lempar Dadu Keberuntungan</div>
+                        <div id="diceDisplay" class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-romantic-600 to-pink-600 flex items-center justify-center text-white text-4xl font-black shadow-xl shadow-romantic-600/30">
+                            <span id="diceIcon">🎲</span>
+                        </div>
+                        <button type="button" onclick="rollDice()" id="rollDiceBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-romantic-600 to-pink-600 hover:from-romantic-500 hover:to-pink-500 text-white font-bold shadow-lg shadow-romantic-600/40 transition flex items-center justify-center space-x-2 cursor-pointer">
+                            <span>🎲</span>
+                            <span id="diceBtnText">Lempar Dadu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: TRUTH OR DARE HUB -->
+        <div id="tab-tod" class="hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
+                    <span>⬅️</span>
+                    <span>Kembali ke Menu</span>
+                </button>
+                <h3 class="font-serif text-xl font-bold text-rose-300">Truth or Dare Spicy & Hot (Ratusan Kartu) 🔥</h3>
+                <div></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <button type="button" onclick="selectTodCategory('sweet')" id="catSweet" class="glass-card rounded-3xl p-6 border border-pink-500/40 hover:border-pink-500 cursor-pointer text-center space-y-3 transition transform hover:-translate-y-1 w-full text-left">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-pink-600 to-rose-500 mx-auto flex items-center justify-center text-white text-2xl shadow-lg p-2">
+                        <img src="sweet.png" alt="Sweet" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'💖',className:'text-2xl'}))">
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-pink-300 text-center">Sweet & Romantic</h4>
+                    <p class="text-xs text-slate-300 text-center">Pertanyaan manis dan kenangan indah penuh cinta.</p>
+                </button>
+
+                <button type="button" onclick="selectTodCategory('deep')" id="catDeep" class="glass-card rounded-3xl p-6 border border-indigo-500/40 hover:border-indigo-500 cursor-pointer text-center space-y-3 transition transform hover:-translate-y-1 w-full text-left">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-indigo-600 to-blue-500 mx-auto flex items-center justify-center text-white text-2xl shadow-lg p-2">
+                        <img src="deep.png" alt="Deep Talk" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🧠',className:'text-2xl'}))">
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-indigo-300 text-center">Deep Talk</h4>
+                    <p class="text-xs text-slate-300 text-center">Membahas isi kepala, impian, dan ikatan emosional.</p>
+                </button>
+
+                <button type="button" onclick="selectTodCategory('hot')" id="catHot" class="glass-spicy rounded-3xl p-6 cursor-pointer text-center space-y-3 transition transform hover:-translate-y-1 glow-spicy w-full text-left">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-spicy-600 to-romantic-600 mx-auto flex items-center justify-center text-white text-2xl shadow-lg shadow-spicy-600/50 p-2">
+                        <img src="sex.png" alt="Hot" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🔥',className:'text-2xl'}))">
+                    </div>
+                    <h4 class="font-serif text-xl font-bold text-rose-200 text-center">Spicy & Hot 🔥 (Eksklusif)</h4>
+                    <p class="text-xs text-slate-200 text-center">Tantangan fisik berani, fantasi mendalam, dan foreplay panas.</p>
+                </button>
+            </div>
+
+            <div id="todArena" class="max-w-2xl mx-auto glass-spicy rounded-3xl p-8 text-center space-y-6 relative overflow-hidden shadow-2xl glow-spicy" style="display: none;">
+                <div id="todPlayerIndicator" class="inline-block px-4 py-1.5 rounded-full bg-romantic-500/30 text-rose-200 text-xs font-bold border border-romantic-500/50">
+                    Kategori Pilihan Siap Diuji
+                </div>
+                
+                <div class="flex justify-center gap-4">
+                    <button type="button" onclick="drawTodCard('truth')" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold shadow-lg shadow-indigo-600/30 transition flex items-center space-x-2 cursor-pointer">
+                        <span>❓</span><span>Pilih TRUTH (Kejujuran)</span>
+                    </button>
+                    <button type="button" onclick="drawTodCard('dare')" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-spicy-600 to-romantic-600 hover:from-spicy-500 hover:to-romantic-500 text-white font-bold shadow-lg shadow-romantic-600/40 transition flex items-center space-x-2 cursor-pointer">
+                        <span>⚡</span><span>Pilih DARE (Tantangan)</span>
+                    </button>
+                </div>
+
+                <div id="todCardContent" class="p-6 rounded-2xl bg-slate-950/90 border border-romantic-500/40 space-y-4" style="display: none;">
+                    <span id="todCardTypeBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-300">TRUTH</span>
+                    <p id="todCardText" class="text-lg font-serif italic text-slate-100 leading-relaxed">"Apa hal kecil yang aku lakukan hari ini yang paling membuatmu merasa dicintai?"</p>
+                    <div class="pt-4 flex justify-center space-x-3">
+                        <button type="button" onclick="completeTodTask(true)" class="px-5 py-2 rounded-xl bg-emerald-600/30 border border-emerald-500/50 hover:bg-emerald-600/40 text-emerald-300 text-xs font-bold transition flex items-center space-x-1.5 cursor-pointer">
+                            <span>✅</span><span>Selesai (+20 Coins)</span>
+                        </button>
+                        <button type="button" onclick="drawTodCard(lastTodType)" class="px-5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition cursor-pointer">
+                            🔄 Ganti Kartu Lain
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: SPIN WHEEL -->
+        <div id="tab-wheel" class="hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
+                    <span>⬅️</span><span>Kembali ke Menu</span>
+                </button>
+                <h3 class="font-serif text-xl font-bold text-amber-300">Spin Wheel Sentuhan Malam 🎡</h3>
+                <div></div>
+            </div>
+
+            <div class="max-w-xl mx-auto glass-card rounded-3xl p-8 border border-amber-500/30 text-center space-y-6 shadow-2xl">
+                <p class="text-xs text-slate-300">Klik tombol di bawah, roda dengan berbagai pilihan aksi intim akan berputar dan berhenti di panah atas!</p>
+                
+                <div class="relative w-80 h-80 sm:w-96 sm:h-96 mx-auto flex items-center justify-center my-4">
+                    <!-- Panah Penunjuk di Atas -->
+                    <div class="absolute -top-4 z-30 w-0 h-0 border-l-[14px] border-l-transparent border-r-[14px] border-r-transparent border-t-[26px] border-t-amber-400 filter drop-shadow-xl"></div>
+                    
+                    <!-- Canvas Roda Jauh Lebih Besar (420x420) -->
+                    <canvas id="wheelCanvas" width="420" height="420" class="w-80 h-80 sm:w-96 sm:h-96 rounded-full border-6 border-amber-400 shadow-2xl shadow-amber-500/50 cursor-pointer" onclick="spinTheWheel()"></canvas>
+                    
+                    <!-- Lingkaran Tengah Roda -->
+                    <div class="absolute w-14 h-14 rounded-full bg-slate-950 border-3 border-amber-400 z-20 flex items-center justify-center text-amber-300 font-bold text-sm shadow-xl cursor-pointer hover:scale-110 transition" onclick="spinTheWheel()">
+                        💋
+                    </div>
+                </div>
+
+                <button type="button" onclick="spinTheWheel()" id="spinWheelBtn" class="px-8 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-extrabold shadow-lg shadow-amber-500/40 transition cursor-pointer">
+                    Putar Roda Sekarang! 🎯
+                </button>
+            </div>
+        </div>
+
+        <!-- TAB 5: KUIS KECOCOKAN -->
+        <div id="tab-quiz" class="hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
+                    <span>⬅️</span><span>Kembali ke Menu</span>
+                </button>
+                <h3 class="font-serif text-xl font-bold text-emerald-300">Kuis Kecocokan Pasutri 📋</h3>
+                <div></div>
+            </div>
+
+            <div class="max-w-2xl mx-auto glass-card rounded-3xl p-8 border border-emerald-500/30 space-y-6 shadow-2xl">
+                <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                    <span id="quizProgress" class="text-xs font-bold text-emerald-400">Pertanyaan 1 dari 5</span>
+                    <span class="text-xs bg-slate-800 px-3 py-1 rounded-full text-emerald-300">Skor: <strong id="quizScore">0</strong></span>
+                </div>
+
+                <div id="quizContainer" class="space-y-6">
+                    <h4 id="quizQuestion" class="font-serif text-xl font-bold leading-relaxed">Apa hal yang paling sering bikin pasanganmu tersenyum di pagi hari?</h4>
+                    <div id="quizOptions" class="grid grid-cols-1 gap-3"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 6: LOVE REWARDS & VOUCHERS -->
+        <div id="tab-rewards" class="hidden space-y-6">
+            <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex-wrap gap-3">
+                <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
+                    <span>⬅️</span><span>Kembali ke Menu</span>
+                </button>
+                <div class="flex items-center space-x-2">
+                    <span>🪙</span>
+                    <span class="text-sm font-bold text-amber-300">Saldo Love Coins: <span id="voucherLoveCoins">150</span></span>
+                </div>
+            </div>
+
+            <div id="voucherGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+
+    </main>
+
+    <!-- SPIN WHEEL RESULT MODAL -->
+    <div id="wheelModal" class="fixed inset-0 z-50 glass-modal flex items-center justify-center p-4 animate-fade-in" style="display: none;">
+        <div class="glass-spicy rounded-3xl p-8 md:p-10 max-w-lg w-full border-2 border-amber-400/80 space-y-6 shadow-2xl text-center relative glow-spicy transform scale-100 transition-all">
+            <div class="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-400 border-4 border-slate-950 flex items-center justify-center text-3xl shadow-2xl animate-bounce">
+                🎰
+            </div>
+            <div class="pt-4 space-y-2">
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 text-xs font-extrabold uppercase tracking-widest">Tantangan Terpilih 🔥</span>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-amber-300">Selamat! Aksi Intim Kamu:</h3>
+            </div>
+            
+            <div id="wheelModalText" class="text-xl md:text-2xl font-serif italic text-white leading-relaxed bg-slate-950/90 p-6 rounded-2xl border border-amber-500/50 shadow-inner">
+                "Ciuman Mesra Bibir 30 Detik"
+            </div>
+
+            <p class="text-xs text-amber-200/80 font-medium">Lakukan tantangan ini bersama pasanganmu sekarang juga dan nikmati momennya! ❤️</p>
+            
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                <button type="button" onclick="spinTheWheel()" class="flex-1 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-400 hover:to-yellow-400 text-slate-950 font-extrabold text-sm shadow-xl shadow-amber-500/30 transition transform hover:scale-105 cursor-pointer">
+                    🎯 Putar Lagi (+10 Coins)
+                </button>
+                <button type="button" onclick="closeWheelModal()" class="px-6 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition cursor-pointer">
+                    Simpan & Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SETTINGS & PROFILE MODAL -->
+    <div id="settingsModal" class="fixed inset-0 z-50 glass-modal flex items-center justify-center p-4" style="display: none;">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-md w-full border border-romantic-500/40 space-y-6 shadow-2xl relative">
+            <h3 class="font-serif text-2xl font-bold text-romantic-300">Pengaturan & Profil Pasangan</h3>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Nama Pemain 1 (Suami/P1)</label>
+                    <input type="text" id="inputP1Name" value="Bagus" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-romantic-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Nama Pemain 2 (Istri/P2)</label>
+                    <input type="text" id="inputP2Name" value="Bunga" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-romantic-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Tanggal Pernikahan / Anniversary</label>
+                    <input type="date" id="inputAnnivDate" value="2024-01-01" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 text-sm text-white focus:border-romantic-500 outline-none">
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button type="button" onclick="resetAllGameData()" class="px-4 py-2 rounded-xl bg-rose-600/20 border border-rose-500/40 hover:bg-rose-600/30 text-rose-300 text-xs font-bold transition cursor-pointer">🗑️ Reset Koin & Data</button>
+                <div class="flex space-x-3">
+                    <button type="button" onclick="closeSettingsModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold transition cursor-pointer">Batal</button>
+                    <button type="button" onclick="saveSettings()" class="px-4 py-2 rounded-xl bg-gradient-to-r from-romantic-600 to-spicy-600 text-white text-xs font-bold shadow-lg shadow-romantic-600/30 transition cursor-pointer">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TIMER & LOVE NOTES MODAL -->
+    <div id="timerModal" class="fixed inset-0 z-50 glass-modal flex items-center justify-center p-4" style="display: none;">
+        <div class="glass-card rounded-3xl p-6 md:p-8 max-w-lg w-full border border-cyan-500/40 space-y-6 shadow-2xl relative">
+            <div class="flex justify-between items-center">
+                <h3 class="font-serif text-2xl font-bold text-cyan-300">Love Timer & Catatan Cinta 💕</h3>
+                <button type="button" onclick="closeTimerModal()" class="text-slate-400 hover:text-white text-lg">✖️</button>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 text-center space-y-2">
+                    <p class="text-xs text-slate-400">Durasi Kebersamaan Bagus & Bunga:</p>
+                    <div class="grid grid-cols-3 gap-2">
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span id="timerDays" class="text-xl font-extrabold text-cyan-400">0</span>
+                            <p class="text-[9px] text-slate-400 uppercase">Hari</p>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span id="timerHours" class="text-xl font-extrabold text-cyan-400">0</span>
+                            <p class="text-[9px] text-slate-400 uppercase">Jam</p>
+                        </div>
+                        <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800">
+                            <span id="timerMins" class="text-xl font-extrabold text-cyan-400">0</span>
+                            <p class="text-[9px] text-slate-400 uppercase">Menit</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-300">Tulis Catatan / Pesan Cinta Rahasia Hari Ini:</label>
+                    <textarea id="loveNoteInput" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:border-cyan-500 outline-none" placeholder="Tulis ungkapan cinta atau pesan untuk pasanganmu di sini..."></textarea>
+                    <button type="button" onclick="saveLoveNote()" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition cursor-pointer">Simpan Catatan Cinta</button>
+                </div>
+
+                <div id="savedNotesContainer" class="max-h-32 overflow-y-auto space-y-2 text-xs text-slate-300"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEDUCTION POPUP MODAL (Godaan Kilat) -->
+    <div id="seductionModal" class="fixed inset-0 z-50 glass-modal flex items-center justify-center p-4" style="display: none;">
+        <div class="glass-spicy rounded-3xl p-6 md:p-8 max-w-md w-full border border-romantic-500/60 space-y-6 shadow-2xl text-center relative glow-spicy">
+            <div class="text-4xl animate-bounce">🍷🔥</div>
+            <h3 class="font-serif text-2xl font-bold text-rose-200">Godaan Kilat Malam Ini</h3>
+            <p id="seductionText" class="text-sm font-serif italic text-slate-100 leading-relaxed bg-slate-950/80 p-4 rounded-2xl border border-romantic-500/30">
+                "Bisikan tepat di telinga pasanganmu: 'Malam ini kamu milikku seutuhnya...'"
+            </p>
+            <div class="flex space-x-3 pt-2">
+                <button type="button" onclick="generateSeductionPrompt()" class="flex-1 py-3 rounded-xl bg-romantic-600 hover:bg-romantic-500 text-white font-bold text-xs shadow-lg transition cursor-pointer">
+                    🎲 Acak Godaan Lain (+10 Coins)
+                </button>
+                <button type="button" onclick="closeSeductionPopup()" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition cursor-pointer">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO BACKSOUND INTIM -->
+    <audio id="bgmAudio" loop>
+        <source src="https://cdns.iconscout.com/audio/preview/mp3/romantic-lofi-chill-beat-preview-482.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SCRIPT JAVASCRIPT -->
+    <script>
+        let gameState = {
+            p1Name: "Bagus",
+            p2Name: "Bunga",
+            p1Pos: 1,
+            p2Pos: 1,
+            p1Score: 0,
+            p2Score: 0,
+            p1Coins: 0,
+            p2Coins: 0,
+            turn: 1,
+            soundEnabled: true,
+            bgmPlaying: false,
+            annivDate: "2024-01-01",
+            lastRolledValue: 0,
+            isRolling: false,
+            waitingForMove: false,
+            loveNotes: ["Bagus & Bunga selamanya intim & romantis! ❤️", "Malam ini milik kita berdua sayang."]
+        };
+
+        const seductionPhrases = [
+            "Bisikkan di telinga pasanganmu: 'Kamu terlihat sangat seksi malam ini, aku gak sabar...' 🍷",
+            "Berikan ciuman lembut di leher belakang pasangan tanpa aba-aba selama 15 detik. ✨",
+            "Tatap mata pasangan dalam-dalam dan katakan: 'Sentuhanmu selalu bikin aku luluh.' 💋",
+            "Pegang pinggang pasangan dengan erat dan bisikkan rencana manja untuk malam ini. 🔥",
+            "Minta pasangan memejamkan mata, lalu berikan kecupan hangat di bibirnya. 🌹",
+            "Goda pasangan dengan senyuman paling misterius dan puji aroma parfumnya. 🥂"
+        ];
+
+        function openSeductionPopup() {
+            playSound('click');
+            generateSeductionPrompt();
+            document.getElementById('seductionModal').style.display = 'flex';
+        }
+
+        function closeSeductionPopup() {
+            playSound('click');
+            document.getElementById('seductionModal').style.display = 'none';
+        }
+
+        function generateSeductionPrompt() {
+            const randomPhrase = seductionPhrases[Math.floor(Math.random() * seductionPhrases.length)];
+            document.getElementById('seductionText').innerText = `"${randomPhrase}"`;
+            gameState.p1Coins += 5;
+            gameState.p2Coins += 5;
+            updateSnakeTokens();
+            saveGameData();
+            playSound('win');
+        }
+
+        // --- LOCALSTORAGE SAVE & LOAD ---
+        function saveGameData() {
+            const dataToSave = {
+                p1Name: gameState.p1Name,
+                p2Name: gameState.p2Name,
+                p1Pos: gameState.p1Pos,
+                p2Pos: gameState.p2Pos,
+                p1Score: gameState.p1Score,
+                p2Score: gameState.p2Score,
+                p1Coins: gameState.p1Coins,
+                p2Coins: gameState.p2Coins,
+                loveNotes: gameState.loveNotes,
+                annivDate: gameState.annivDate
+            };
+            localStorage.setItem('pasutri_love_hub_save', JSON.stringify(dataToSave));
+        }
+
+        function loadGameData() {
+            const savedData = localStorage.getItem('pasutri_love_hub_save_v2');
+            if (savedData) {
+                try {
+                    const parsed = JSON.parse(savedData);
+                    gameState.p1Name = parsed.p1Name || "Bagus";
+                    gameState.p2Name = parsed.p2Name || "Bunga";
+                    gameState.p1Pos = parsed.p1Pos || 1;
+                    gameState.p2Pos = parsed.p2Pos || 1;
+                    gameState.p1Score = parsed.p1Score || 0;
+                    gameState.p2Score = parsed.p2Score || 0;
+                    gameState.p1Coins = parsed.p1Coins !== undefined ? parsed.p1Coins : 0;
+                    gameState.p2Coins = parsed.p2Coins !== undefined ? parsed.p2Coins : 0;
+                    gameState.loveNotes = parsed.loveNotes || gameState.loveNotes;
+                    gameState.annivDate = parsed.annivDate || "2024-01-01";
+                } catch (e) {
+                    console.error("Gagal memuat data", e);
+                }
+            } else {
+                gameState.p1Coins = 0;
+                gameState.p2Coins = 0;
+            }
+        }
+
+        function saveGameData() {
+            const dataToSave = {
+                p1Name: gameState.p1Name,
+                p2Name: gameState.p2Name,
+                p1Pos: gameState.p1Pos,
+                p2Pos: gameState.p2Pos,
+                p1Score: gameState.p1Score,
+                p2Score: gameState.p2Score,
+                p1Coins: gameState.p1Coins,
+                p2Coins: gameState.p2Coins,
+                loveNotes: gameState.loveNotes,
+                annivDate: gameState.annivDate
+            };
+            localStorage.setItem('pasutri_love_hub_save_v2', JSON.stringify(dataToSave));
+        }
+
+        function resetAllGameData() {
+            if (confirm("Yakin ingin mereset koin dan progres ke 0? Fitur save lainnya akan tetap aktif.")) {
+                localStorage.removeItem('pasutri_love_hub_save_v2');
+                localStorage.removeItem('pasutri_love_hub_save');
+                gameState.p1Coins = 0;
+                gameState.p2Coins = 0;
+                gameState.p1Score = 0;
+                gameState.p2Score = 0;
+                gameState.p1Pos = 1;
+                gameState.p2Pos = 1;
+                updateSnakeTokens();
+                saveGameData();
+                closeSettingsModal();
+                alert("✨ Berhasil mereset koin & progres ke 0!");
+            }
+        }
+
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSound(type) {
+            if (!gameState.soundEnabled) return;
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            if (type === 'dice') {
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.15);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            } else if (type === 'win') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                osc.frequency.setValueAtTime(554.37, audioCtx.currentTime + 0.1);
+                osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.2);
+                gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.4);
+            } else if (type === 'click') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.05);
+            } else if (type === 'move') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.08);
+                gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.08);
+            }
+        }
+
+        function toggleAudio() {
+            gameState.soundEnabled = !gameState.soundEnabled;
+            document.getElementById('soundIcon').innerText = gameState.soundEnabled ? "🔊" : "🔇";
+            playSound('click');
+        }
+
+        function toggleBGM() {
+            const bgm = document.getElementById('bgmAudio');
+            const label = document.getElementById('bgmLabel');
+            const icon = document.getElementById('bgmIcon');
+            
+            if (!bgm) return;
+            if (gameState.bgmPlaying) {
+                bgm.pause();
+                gameState.bgmPlaying = false;
+                label.innerText = "BGM: Off";
+                icon.classList.remove('animate-spin');
+            } else {
+                bgm.play().then(() => {
+                    gameState.bgmPlaying = true;
+                    label.innerText = "BGM: Romantis";
+                    icon.classList.add('animate-spin');
+                }).catch(e => {
+                    alert("Klik sekali lagi untuk mengaktifkan backsound.");
+                });
+            }
+            playSound('click');
+        }
+
+        function triggerLoveBomb() {
+            confetti({
+                particleCount: 140,
+                spread: 90,
+                origin: { y: 0.5 },
+                colors: ['#f43f5e', '#ff2a5f', '#fb7185', '#fda4af', '#f59e0b', '#ec4899']
+            });
+            gameState.p1Coins += 10;
+            gameState.p2Coins += 10;
+            updateSnakeTokens();
+            saveGameData();
+            playSound('win');
+        }
+
+        function switchTab(tabId) {
+            playSound('click');
+            ['hub', 'snake', 'tod', 'wheel', 'quiz', 'rewards'].forEach(t => {
+                document.getElementById(`tab-${t}`).classList.add('hidden');
+            });
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (tabId === 'rewards') initVouchers();
+            if (tabId === 'wheel') setTimeout(() => drawWheel(wheelAngle), 50);
+        }
+
+        function launchGame(gameName) {
+            switchTab(gameName);
+            if (gameName === 'snake') initSnakeBoard();
+            if (gameName === 'quiz') loadQuizQuestion();
+        }
+
+        // ULAR TANGGA LOGIC
+        const snakeSpecialTiles = {
+            3: { type: 'ladder', to: 12, text: "Tangga Cinta! Berikan ciuman hangat di bibir pasangan selama 10 detik. 💋" },
+            7: { type: 'snake', to: 2, text: "Ular Rayuan! Bisikkan kalimat paling menggoda di telinga pasangan. 🔥" },
+            11: { type: 'hot', text: "Kotak Hot! Berikan pijatan sensual di pundak pasangan selama 1 menit. 💆‍♂️" },
+            15: { type: 'ladder', to: 24, text: "Tangga Mesra! Sebutkan 3 hal paling seksi yang kamu suka dari pasanganmu. ❤️" },
+            19: { type: 'snake', to: 10, text: "Ular Cemburu! Berikan pelukan erat dari belakang tanpa suara selama 30 detik. 🤗" },
+            22: { type: 'hot', text: "Kotak Foreplay! Berikan kecupan lembut di leher pasangan. 🍷" },
+            27: { type: 'ladder', to: 32, text: "Tangga Kilat! Saling tatap mata dan katakan 'Aku cinta kamu' dengan penuh gairah. ✨" },
+            30: { type: 'snake', to: 18, text: "Ular Hukuman! Pasangan berhak memberikan 1 tantangan fisik bebas. 😈" }
+        };
+
+        function initSnakeBoard() {
+            const board = document.getElementById('snakeBoard');
+            if (!board) return;
+            board.innerHTML = '';
+            for (let i = 36; i >= 1; i--) {
+                const tile = document.createElement('div');
+                tile.className = "h-16 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between p-1.5 relative text-xs font-bold transition hover:border-romantic-500/80 cursor-pointer";
+                tile.id = `tile-${i}`;
+                tile.onclick = () => handleTileClick(i);
+                
+                let iconHTML = '';
+                if (snakeSpecialTiles[i]) {
+                    if (snakeSpecialTiles[i].type === 'ladder') {
+                        tile.classList.add('border-emerald-500/50', 'bg-emerald-950/20');
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🪜</span>`;
+                    } else if (snakeSpecialTiles[i].type === 'snake') {
+                        tile.classList.add('border-rose-500/50', 'bg-rose-950/20');
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🐍</span>`;
+                    } else if (snakeSpecialTiles[i].type === 'hot') {
+                        tile.classList.add('border-romantic-500/50', 'bg-romantic-950/20');
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🔥</span>`;
+                    }
+                }
+
+                tile.innerHTML = `
+                    <span class="text-[10px] text-slate-500">${i}</span>
+                    <div id="tokens-${i}" class="flex items-center justify-center space-x-1 flex-wrap"></div>
+                    ${iconHTML}
+                `;
+                board.appendChild(tile);
+            }
+            updateSnakeTokens();
+        }
+
+        function updateSnakeTokens() {
+            for (let i = 1; i <= 36; i++) {
+                const spot = document.getElementById(`tokens-${i}`);
+                if (spot) spot.innerHTML = '';
+            }
+
+            const p1Spot = document.getElementById(`tokens-${gameState.p1Pos}`);
+            if (p1Spot) {
+                p1Spot.innerHTML += `<div class="w-6 h-6 rounded-full bg-cyan-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-xs shadow-lg transform hover:scale-110 transition p-0.5" title="${gameState.p1Name}"><img src="dick.png" alt="P1" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🤵',className:'text-xs'}))"></div>`;
+            }
+
+            const p2Spot = document.getElementById(`tokens-${gameState.p2Pos}`);
+            if (p2Spot) {
+                p2Spot.innerHTML += `<div class="w-6 h-6 rounded-full bg-pink-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-xs shadow-lg transform hover:scale-110 transition p-0.5" title="${gameState.p2Name}"><img src="vagina.png" alt="P2" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'👰',className:'text-xs'}))"></div>`;
+            }
+
+            document.getElementById('p1Pos').innerText = gameState.p1Pos;
+            document.getElementById('p2Pos').innerText = gameState.p2Pos;
+            document.getElementById('p1ScoreVal').innerText = gameState.p1Score;
+            document.getElementById('p2ScoreVal').innerText = gameState.p2Score;
+            document.getElementById('p1Coins').innerText = gameState.p1Coins;
+            document.getElementById('p2Coins').innerText = gameState.p2Coins;
+            
+            const totalCoins = gameState.p1Coins + gameState.p2Coins;
+            document.getElementById('globalLoveCoins').innerText = totalCoins;
+            document.getElementById('voucherLoveCoins').innerText = totalCoins;
+
+            const currentName = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
+            document.getElementById('currentTurnName').innerText = currentName;
+            document.getElementById('labelP1Name').innerText = gameState.p1Name;
+            document.getElementById('labelP2Name').innerText = gameState.p2Name;
+            document.getElementById('navP1Name').innerText = gameState.p1Name;
+            document.getElementById('navP2Name').innerText = gameState.p2Name;
+            document.getElementById('navP1Score').innerText = gameState.p1Score + ' pts';
+            document.getElementById('navP2Score').innerText = gameState.p2Score + ' pts';
+
+            const p1Card = document.getElementById('p1Card');
+            const p2Card = document.getElementById('p2Card');
+            if (gameState.turn === 1) {
+                p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-cyan-400 shadow-md transition-all";
+                p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
+            } else {
+                p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
+                p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-pink-400 shadow-md transition-all";
+            }
+
+            const banner = document.getElementById('snakeInstructionBanner');
+            const diceBtnText = document.getElementById('diceBtnText');
+            if (gameState.isRolling) {
+                banner.innerHTML = `<span class="text-amber-400 font-bold">🎲 Dadu sedang berputar...</span>`;
+                diceBtnText.innerText = "Memutar Dadu...";
+            } else if (gameState.waitingForMove) {
+                banner.innerHTML = `<span class="text-emerald-400 font-bold">✨ Dapat dadu ${gameState.lastRolledValue}! Klik kotak tujuan di papan.</span>`;
+                diceBtnText.innerText = `Pilih Kotak (${gameState.lastRolledValue})`;
+            } else {
+                banner.innerHTML = `Giliran: <span class="font-bold text-romantic-400">${currentName}</span> (Lempar Dadu!)`;
+                diceBtnText.innerText = "Lempar Dadu";
+            }
+        }
+
+        function rollDice() {
+            if (gameState.isRolling || gameState.waitingForMove) return;
+            gameState.isRolling = true;
+            updateSnakeTokens();
+            
+            const diceDisplay = document.getElementById('diceDisplay');
+            diceDisplay.classList.add('dice-spinning');
+
+            let counter = 0;
+            const spinInterval = setInterval(() => {
+                playSound('dice');
+                const randomFace = Math.floor(Math.random() * 6) + 1;
+                document.getElementById('diceIcon').innerText = ['⚀','⚁','⚂','⚃','⚄','⚅'][randomFace-1];
+                counter++;
+                if (counter > 10) {
+                    clearInterval(spinInterval);
+                    diceDisplay.classList.remove('dice-spinning');
+                    const finalRoll = Math.floor(Math.random() * 6) + 1;
+                    document.getElementById('diceIcon').innerText = ['⚀','⚁','⚂','⚃','⚄','⚅'][finalRoll-1];
+                    gameState.lastRolledValue = finalRoll;
+                    gameState.isRolling = false;
+                    gameState.waitingForMove = true;
+                    updateSnakeTokens();
+                }
+            }, 80);
+        }
+
+        function handleTileClick(tileNum) {
+            if (!gameState.waitingForMove) {
+                alert("🎲 Lempar dadu terlebih dahulu sebelum menggerakkan pion!");
+                return;
+            }
+
+            const currentPos = gameState.turn === 1 ? gameState.p1Pos : gameState.p2Pos;
+            let targetPos = currentPos + gameState.lastRolledValue;
+            if (targetPos > 36) targetPos = 36;
+
+            if (tileNum !== targetPos && tileNum !== currentPos) {
+                alert(`⚠️ Langkah tidak valid! Dadu menunjukkan angka ${gameState.lastRolledValue}. Kamu harus mendarat di kotak ${targetPos}.`);
+                return;
+            }
+
+            playSound('move');
+            gameState.waitingForMove = false;
+
+            let finalPos = targetPos;
+            let specialMsg = "";
+            if (snakeSpecialTiles[finalPos]) {
+                const tileInfo = snakeSpecialTiles[finalPos];
+                specialMsg = tileInfo.text;
+                if (tileInfo.to) {
+                    finalPos = tileInfo.to;
+                    specialMsg += ` Pindah ke kotak ${finalPos}!`;
+                }
+            }
+
+            if (gameState.turn === 1) {
+                gameState.p1Pos = finalPos;
+                gameState.p1Score += gameState.lastRolledValue * 10;
+                gameState.p1Coins += 15;
+            } else {
+                gameState.p2Pos = finalPos;
+                gameState.p2Score += gameState.lastRolledValue * 10;
+                gameState.p2Coins += 15;
+            }
+
+            updateSnakeTokens();
+            saveGameData();
+
+            if (specialMsg) alert(`✨ Pion bergerak ke kotak ${targetPos}!\n\n${specialMsg}`);
+
+            if (finalPos === 36) {
+                const winner = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
+                triggerLoveBomb();
+                alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA PASUTRI! +50 Bonus Love Coins!`);
+                if (gameState.turn === 1) gameState.p1Coins += 50; else gameState.p2Coins += 50;
+                resetSnakeGame();
+                return;
+            }
+
+            gameState.turn = gameState.turn === 1 ? 2 : 1;
+            updateSnakeTokens();
+            saveGameData();
+        }
+
+        function resetSnakeGame() {
+            gameState.p1Pos = 1;
+            gameState.p2Pos = 1;
+            gameState.turn = 1;
+            gameState.waitingForMove = false;
+            gameState.isRolling = false;
+            updateSnakeTokens();
+            saveGameData();
+        }
+
+        // TRUTH OR DARE DATABASE
+        const todDatabase = {
+            sweet: {
+                truth: [
+                    "Apa hal kecil yang aku lakukan hari ini yang paling membuatmu merasa dicintai?",
+                    "Kapan saat pertama kali kamu benar-benar yakin ingin hidup bersamaku?",
+                    "Apa pujian dariku yang paling membekas di hatimu sampai sekarang?",
+                    "Lagu apa yang paling mengingatkanmu pada awal kita pacaran dulu?",
+                    "Apa hal terlucu yang pernah kamu pikirkan tentangku saat kita baru kenal?"
+                ],
+                dare: [
+                    "Berikan ciuman paling romantis di kening pasangan selama 15 detik.",
+                    "Kirimkan chat gombalan terlebay di grup keluarga atau status sosmed.",
+                    "Pijat lembut tangan pasangan sambil menatap matanya selama 1 menit.",
+                    "Nyanyikan sepenggal lagu romantis kesukaan pasangan dengan penuh penghayatan."
+                ]
+            },
+            deep: {
+                truth: [
+                    "Apa impian terbesarmu yang ingin kita capai bersama dalam 5 tahun ke depan?",
+                    "Bagaimana cara terbaik yang bisa aku lakukan saat kamu sedang merasa stres?",
+                    "Apa satu hal tentang diriku yang paling kamu kagumi dan syukuri?"
+                ],
+                dare: [
+                    "Ungkapkan 3 rasa terima kasih yang mendalam atas kehadiran pasangan di hidupmu.",
+                    "Buat puisi atau pantun singkat 2 bait tentang cinta kalian berdua.",
+                    "Tuliskan sebuah surat cinta pendek di atas kertas dan berikan langsung."
+                ]
+            },
+            hot: {
+                truth: [
+                    "Apa bagian tubuhku yang paling kamu sukai saat kita bermesraan?",
+                    "Sebutkan satu fantasi tersembunyi yang belum pernah kamu ceritakan padaku.",
+                    "Apa outfit tidurku yang paling membuatmu terpesona dan berdebar?",
+                    "Kapan terakhir kali kamu merasa paling bergairah dan kangen berat padaku?"
+                ],
+                dare: [
+                    "Berikan ciuman di leher pasangan selama 10 detik penuh.",
+                    "Bisikan kalimat paling menggoda dan panas tepat di telinga pasangan.",
+                    "Lakukan pijatan relaksasi sensual di pundak pasangan selama 2 menit tanpa protes.",
+                    "Berikan tatapan penuh gairah dan cium lembut bibir pasangan selama 20 detik."
+                ]
+            }
+        };
+
+        let currentTodCategory = 'sweet';
+        let lastTodType = 'truth';
+
+        function selectTodCategory(cat) {
+            playSound('click');
+            currentTodCategory = cat;
+            document.querySelectorAll('#tab-hub button, #tab-tod button').forEach(c => {
+                c.classList.remove('border-white', 'ring-4', 'ring-romantic-500');
+            });
+            const btnEl = document.getElementById(`cat${cat.charAt(0).toUpperCase() + cat.slice(1)}`);
+            if(btnEl) btnEl.classList.add('ring-4', 'ring-romantic-500');
+            document.getElementById('todArena').style.display = 'block';
+        }
+
+        function drawTodCard(type) {
+            playSound('click');
+            lastTodType = type;
+            const list = todDatabase[currentTodCategory][type];
+            const randomCard = list[Math.floor(Math.random() * list.length)];
+            
+            const badge = document.getElementById('todCardTypeBadge');
+            badge.innerText = type.toUpperCase();
+            badge.className = type === 'truth' ? "px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300" : "px-3 py-1 rounded-full text-xs font-bold bg-spicy-500/30 text-rose-200";
+
+            document.getElementById('todCardText').innerText = `"${randomCard}"`;
+            document.getElementById('todCardContent').style.display = 'block';
+        }
+
+        function completeTodTask(success) {
+            playSound('win');
+            if (success) {
+                gameState.p1Coins += 20;
+                alert("Hebat! +20 Love Coins ditambahkan!");
+            }
+            document.getElementById('todCardContent').style.display = 'none';
+            updateSnakeTokens();
+            saveGameData();
+        }
+
+        // SPIN WHEEL CANVAS LOGIC (Dibuat array objek agar bisa dipisah baris (line1 & line2) agar teks tidak kepotong)
+        const wheelOptions = [
+            { line1: "Ciuman Bibir", line2: "30 Detik 💋" },
+            { line1: "Pijat Punggung", line2: "Sensual 5 Menit 💆‍♂️" },
+            { line1: "Pelukan Erat", line2: "Dari Belakang 🤗" },
+            { line1: "Pijat Lembut", line2: "Kaki Pasangan 🦶" },
+            { line1: "Bisikan Rayuan", line2: "Paling Hot 🔥" },
+            { line1: "Suapi Makanan", line2: "Kesukaanmu 🍲" },
+            { line1: "Gombalan", line2: "Paling Lebay 💖" },
+            { line1: "Ciuman Hangat", line2: "Di Leher 15s 🍷" },
+            { line1: "Pijatan Pundak", line2: "Tanpa Protes 🌿" },
+            { line1: "Tatapan Mata", line2: "Tanpa Suara ✨" },
+            { line1: "Puji 3 Hal", line2: "Paling Seksi 🌹" },
+            { line1: "Cubitan Gemas", line2: "& Pelukan Erat 🫂" },
+            { line1: "Bisikkan Rencana", line2: "Malam Ini 🌙" },
+            { line1: "Cium Kedua Pipi", line2: "& Kening 😙" },
+            { line1: "Gendong Manja /", line2: "Rangkul Erat 💃" },
+            { line1: "Sentuhan Lembut", line2: "Di Pinggang ⚡" }
+        ];
+
+        const wheelColors = [
+            '#e11d48', '#f59e0b', '#ec4899', '#6366f1', 
+            '#10b981', '#8b5cf6', '#f43f5e', '#3b82f6',
+            '#d97706', '#db2777', '#4f46e5', '#059669',
+            '#7c3aed', '#be123c', '#2563eb', '#ca8a04'
+        ];
+
+        let wheelAngle = 0;
+        let wheelIsSpinning = false;
+
+        function drawWheel(angle = 0) {
+            const canvas = document.getElementById('wheelCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const numSlices = wheelOptions.length;
+            const arcSize = (2 * Math.PI) / numSlices;
+            const center = canvas.width / 2;
+            const radius = center - 10;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(center, center);
+            ctx.rotate(angle);
+
+            for (let i = 0; i < numSlices; i++) {
+                const startAngle = i * arcSize;
+                const endAngle = (i + 1) * arcSize;
+
+                ctx.beginPath();
+                ctx.moveTo(0, 0);
+                ctx.arc(0, 0, radius, startAngle, endAngle);
+                ctx.closePath();
+                ctx.fillStyle = wheelColors[i % wheelColors.length];
+                ctx.fill();
+                ctx.strokeStyle = '#0f172a';
+                ctx.lineWidth = 2.5;
+                ctx.stroke();
+
+                ctx.save();
+                ctx.rotate(startAngle + arcSize / 2);
+                ctx.textAlign = 'right';
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 11px "Plus Jakarta Sans", sans-serif';
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+                ctx.shadowBlur = 6;
+                // Render 2 baris (line1 & line2) agar rapi dan tidak kepotong
+                ctx.fillText(wheelOptions[i].line1, radius - 18, -3);
+                ctx.fillText(wheelOptions[i].line2, radius - 18, 11);
+                ctx.restore();
+            }
+
+            ctx.restore();
+        }
+
+        function spinTheWheel() {
+            if (wheelIsSpinning) return;
+            
+            document.getElementById('wheelModal').style.display = 'none';
+            
+            wheelIsSpinning = true;
+            playSound('dice');
+
+            const btn = document.getElementById('spinWheelBtn');
+            if (btn) {
+                btn.disabled = true;
+                btn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+
+            const canvas = document.getElementById('wheelCanvas');
+            const numSlices = wheelOptions.length;
+            const arcSize = (2 * Math.PI) / numSlices;
+
+            const winningIndex = Math.floor(Math.random() * numSlices);
+            const extraSpins = (5 + Math.floor(Math.random() * 4)) * 2 * Math.PI;
+            const targetAngle = extraSpins + (2 * Math.PI - (winningIndex + 0.5) * arcSize);
+
+            const duration = 3500;
+            const startAngle = wheelAngle;
+            const startTime = performance.now();
+
+            function animateWheel(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                wheelAngle = startAngle + (targetAngle - startAngle) * easeOut;
+
+                drawWheel(wheelAngle);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animateWheel);
+                } else {
+                    wheelIsSpinning = false;
+                    if (btn) {
+                        btn.disabled = false;
+                        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                    const picked = wheelOptions[winningIndex];
+                    triggerLoveBomb();
+
+                    document.getElementById('wheelModalText').innerText = `"${picked.line1} ${picked.line2}"`;
+                    document.getElementById('wheelModal').style.display = 'flex';
+                    saveGameData();
+                }
+            }
+
+            requestAnimationFrame(animateWheel);
+        }
+
+        function closeWheelModal() {
+            playSound('click');
+            document.getElementById('wheelModal').style.display = 'none';
+        }
+
+        // KUIS
+        const quizQuestions = [
+            { q: "Apa makanan favorit yang paling sering dipesan saat kalian nge-date?", options: ["Martabak Manis", "Sate Ayam Madura", "Seafood Bakar", "Burger & Kentang"], correct: 0 },
+            { q: "Apa kebiasaan kecilku yang paling sering bikin kamu tersenyum/gemas?", options: ["Ngorok halus pas tidur", "Muka cemberut kalau lapar", "Suka nyanyi di kamar mandi", "Nge-chat panjang pas kangen"], correct: 1 },
+            { q: "Destinasi liburan impian nomor 1 yang paling ingin kita kunjungi bersama?", options: ["Pantai Tropis Bali/Lombok", "Pegunungan Dingin Dieng", "Jepang / Korea", "Staycation Mewah"], correct: 2 }
+        ];
+
+        let currentQuizIndex = 0;
+        let quizScoreVal = 0;
+
+        function loadQuizQuestion() {
+            const container = document.getElementById('quizContainer');
+            if (!container) return;
+
+            if (currentQuizIndex >= quizQuestions.length) {
+                container.innerHTML = `
+                    <div class="text-center space-y-4">
+                        <h4 class="font-serif text-2xl font-bold text-emerald-300">Kuis Kecocokan Selesai! 🎉</h4>
+                        <p class="text-slate-300">Skor Kecocokan: <strong class="text-emerald-400">${Math.round((quizScoreVal / quizQuestions.length) * 100)}%</strong></p>
+                        <button type="button" onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold cursor-pointer shadow-lg">Ulangi Kuis</button>
+                    </div>
+                `;
+                saveGameData();
+                return;
+            }
+
+            const qData = quizQuestions[currentQuizIndex];
+            document.getElementById('quizProgress').innerText = `Pertanyaan ${currentQuizIndex + 1} dari ${quizQuestions.length}`;
+            document.getElementById('quizScore').innerText = quizScoreVal;
+            document.getElementById('quizQuestion').innerText = qData.q;
+
+            const optContainer = document.getElementById('quizOptions');
+            optContainer.innerHTML = '';
+            qData.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = "w-full text-left p-4 rounded-2xl bg-slate-900/80 border border-slate-700 hover:border-emerald-500 text-sm font-semibold transition flex items-center justify-between cursor-pointer";
+                btn.innerHTML = `<span>${opt}</span> <span>➡️</span>`;
+                btn.onclick = () => {
+                    playSound('click');
+                    if (idx === qData.correct) {
+                        quizScoreVal += 1;
+                        triggerLoveBomb();
+                    }
+                    currentQuizIndex++;
+                    loadQuizQuestion();
+                };
+                optContainer.appendChild(btn);
+            });
+        }
+
+        function resetQuiz() {
+            playSound('click');
+            currentQuizIndex = 0;
+            quizScoreVal = 0;
+            document.getElementById('quizContainer').innerHTML = `
+                <h4 id="quizQuestion" class="font-serif text-xl font-bold leading-relaxed">Apa hal yang paling sering bikin pasanganmu tersenyum di pagi hari?</h4>
+                <div id="quizOptions" class="grid grid-cols-1 gap-3"></div>
+            `;
+            loadQuizQuestion();
+        }
+
+        // VOUCHERS
+        const voucherDatabase = [
+            { name: "Voucher Pijat Punggung Sensual 15 Menit", cost: 50, desc: "Hak pijat santai dari pasangan tanpa protes." },
+            { name: "Request Menu Masakan Spesial", cost: 80, desc: "Pasangan wajib memasak makanan kesukaanmu." },
+            { name: "Hak Veto Bebas Tugas Rumah", cost: 120, desc: "Bebas dari cuci piring atau bersih-bersih 1 hari." },
+            { name: "Movie Night Pilihan Sendiri", cost: 60, desc: "Bebas pilih film tontonan malam minggu." }
+        ];
+
+        function initVouchers() {
+            const grid = document.getElementById('voucherGrid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            voucherDatabase.forEach(v => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-3xl p-6 border border-amber-500/30 flex flex-col justify-between space-y-4 hover:border-amber-400 transition";
+                card.innerHTML = `
+                    <div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4 p-2">
+                            <img src="icon_gift.png" alt="Gift" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎁',className:'text-xl'}))">
+                        </div>
+                        <h4 class="font-serif text-lg font-bold">${v.name}</h4>
+                        <p class="text-xs text-slate-300 mt-1">${v.desc}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <span class="text-xs font-bold text-amber-400">🪙 ${v.cost} Coins</span>
+                        <button type="button" onclick="redeemVoucher('${v.name}', ${v.cost})" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition cursor-pointer shadow">Tukar</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function redeemVoucher(voucherName, cost) {
+            const totalCoins = gameState.p1Coins + gameState.p2Coins;
+            if (totalCoins >= cost) {
+                gameState.p1Coins = Math.max(0, gameState.p1Coins - cost);
+                updateSnakeTokens();
+                saveGameData();
+                playSound('win');
+                triggerLoveBomb();
+                alert(`🎉 Berhasil menukar "${voucherName}" seharga ${cost} Coins!`);
+            } else {
+                alert("❌ Love Coins kalian kurang!");
+            }
+        }
+
+        // SETTINGS & TIMER
+        function openSettingsModal() { playSound('click'); document.getElementById('settingsModal').style.display = 'flex'; }
+        function closeSettingsModal() { playSound('click'); document.getElementById('settingsModal').style.display = 'none'; }
+        function saveSettings() {
+            gameState.p1Name = document.getElementById('inputP1Name').value || "Bagus";
+            gameState.p2Name = document.getElementById('inputP2Name').value || "Bunga";
+            gameState.annivDate = document.getElementById('inputAnnivDate').value || "2024-01-01";
+            closeSettingsModal();
+            updateSnakeTokens();
+            saveGameData();
+        }
+
+        function openTimerModal() { playSound('click'); updateTimerDisplay(); renderLoveNotes(); document.getElementById('timerModal').style.display = 'flex'; }
+        function closeTimerModal() { playSound('click'); document.getElementById('timerModal').style.display = 'none'; }
+        function updateTimerDisplay() {
+            const diff = new Date() - new Date(gameState.annivDate);
+            document.getElementById('timerDays').innerText = Math.max(0, Math.floor(diff / (1000 * 60 * 60 * 24)));
+            document.getElementById('timerHours').innerText = Math.max(0, Math.floor((diff / (1000 * 60 * 60)) % 24));
+            document.getElementById('timerMins').innerText = Math.max(0, Math.floor((diff / 1000 / 60) % 60));
+        }
+
+        function saveLoveNote() {
+            const input = document.getElementById('loveNoteInput');
+            if (input.value.trim() !== '') {
+                gameState.loveNotes.unshift(input.value.trim());
+                input.value = '';
+                renderLoveNotes();
+                playSound('win');
+                triggerLoveBomb();
+                saveGameData();
+            }
+        }
+
+        function renderLoveNotes() {
+            const container = document.getElementById('savedNotesContainer');
+            container.innerHTML = '';
+            gameState.loveNotes.forEach(note => {
+                const item = document.createElement('div');
+                item.className = "bg-slate-950 p-2.5 rounded-xl border border-slate-800 italic text-cyan-200";
+                item.innerText = `"${note}"`;
+                container.appendChild(item);
+            });
+        }
+
+        window.onload = () => {
+            loadGameData();
+            initSnakeBoard();
+            initVouchers();
+            updateSnakeTokens();
+            setTimeout(() => drawWheel(0), 100);
+        };
+    </script>
+</body>
+</html>
