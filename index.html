@@ -702,8 +702,8 @@
         function generateSeductionPrompt() {
             const randomPhrase = seductionPhrases[Math.floor(Math.random() * seductionPhrases.length)];
             document.getElementById('seductionText').innerText = `"${randomPhrase}"`;
-            gameState.p1Score += 500; gameState.p1Coins += 50;
-            gameState.p2Score += 500; gameState.p2Coins += 50;
+            gameState.p1Score += 50; gameState.p1Coins += 5;
+            gameState.p2Score += 50; gameState.p2Coins += 5;
             updateSnakeTokens();
             saveGameData();
             playSound('win');
@@ -863,8 +863,8 @@
                 origin: { y: 0.5 },
                 colors: ['#f43f5e', '#ff2a5f', '#fb7185', '#fda4af', '#f59e0b', '#ec4899']
             });
-            gameState.p1Score += 1000; gameState.p1Coins += 100;
-            gameState.p2Score += 1000; gameState.p2Coins += 100;
+            gameState.p1Score += 100; gameState.p1Coins += 10;
+            gameState.p2Score += 100; gameState.p2Coins += 10;
             updateSnakeTokens();
             saveGameData();
             playSound('win');
@@ -1239,10 +1239,10 @@
             }
 
             if (gameState.turn === 1) {
-                gameState.p1Score += gameState.lastRolledValue * 500;
+                gameState.p1Score += gameState.lastRolledValue * 50;
                 gameState.p1Coins += 3;
             } else {
-                gameState.p2Score += gameState.lastRolledValue * 500;
+                gameState.p2Score += gameState.lastRolledValue * 50;
                 gameState.p2Coins += 3;
             }
 
@@ -1259,7 +1259,7 @@
                 const winner = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
                 triggerLoveBomb();
                 alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA! +50 Bonus Love Coins!`);
-                if (gameState.turn === 1) { gameState.p1Score += 5000; gameState.p1Coins += 500; } else { gameState.p2Score += 5000; gameState.p2Coins += 500; }
+                if (gameState.turn === 1) { gameState.p1Score += 200; gameState.p1Coins += 20; } else { gameState.p2Score += 200; gameState.p2Coins += 20; }
                 resetSnakeGame();
                 return;
             }
@@ -1358,7 +1358,7 @@
         function completeTodTask(success) {
             playSound('win');
             if (success) {
-                gameState.p1Score += 1000; gameState.p1Coins += 100;
+                gameState.p1Score += 50; gameState.p1Coins += 5;
                 alert("Hebat! +20 Love Coins ditambahkan!");
             }
             document.getElementById('todCardContent').style.display = 'none';
@@ -1603,7 +1603,7 @@
                         const p2Choice = idx;
                         if (p1CurrentChoice === p2Choice) {
                             quizScoreVal += 1;
-                            gameState.p1Score += 1000; gameState.p1Coins += 100;
+                            gameState.p1Score += 50; gameState.p1Coins += 5;
                             gameState.p2Score += 1000; gameState.p2Coins += 100;
                             triggerLoveBomb();
                             alert(`🎉 COCOK BANGET! Pilihan ${gameState.p1Name} dan ${gameState.p2Name} SAMA PERSIS! +1,000 PTS & +100 Coins! 🥂❤️`);
