@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Hub: Ultimate Spicy & Intimate Suite</title>
+    <title>Bagus & Bunga Love Hub: Ultimate Spicy & Intimate Suite</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -114,7 +114,7 @@
                     <img src="logo.png" alt="Logo" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'💋',className:'text-xl'}))">
                 </div>
                 <div>
-                    <h1 class="font-serif text-xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Love Games 💋</h1>
+                    <h1 class="font-serif text-xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Bagus & Bunga Love Hub 💋</h1>
                     <p class="text-xs text-romantic-300 font-medium">Bagus & Bunga Exclusive Suite</p>
                 </div>
             </button>
@@ -201,7 +201,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- 1. Ular Tangga Hot -->
+                    <!-- 1. Ular Tangga Couple Hot -->
                     <button type="button" onclick="launchGame('snake')" class="group glass-card rounded-3xl p-6 border border-romantic-500/30 hover:border-romantic-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-romantic-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-romantic-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
                         <div>
@@ -209,7 +209,7 @@
                                 <img src="snake-love.png" alt="Ular Tangga" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎲',className:'text-2xl'}))">
                             </div>
                             <div class="inline-block bg-romantic-500/20 text-romantic-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full mb-2 uppercase tracking-wider">🔥 Hot Tantangan</div>
-                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-romantic-300 transition">Ular Tangga Hot</h4>
+                            <h4 class="font-serif text-xl font-bold mb-2 group-hover:text-romantic-300 transition">Ular Tangga Couple Hot Hot</h4>
                             <p class="text-slate-300 text-xs leading-relaxed mb-4">
                                 Papan 36 kotak dengan pion interaktif, dadu putar, dan kotak tantangan foreplay intim.
                             </p>
@@ -258,7 +258,7 @@
                         </div>
                     </button>
 
-                    <!-- 4. Kuis Kecocokan -->
+                    <!-- 4. Kuis Kecocokan Sweet Couple -->
                     <button type="button" onclick="launchGame('quiz')" class="group glass-card rounded-3xl p-6 border border-emerald-500/30 hover:border-emerald-500 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-emerald-600/20 relative overflow-hidden flex flex-col justify-between text-left w-full">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full pointer-events-none group-hover:scale-110 transition duration-500"></div>
                         <div>
@@ -318,7 +318,7 @@
             </div>
         </div>
 
-        <!-- TAB 2: GAME ULAR TANGGA HOT -->
+        <!-- TAB 2: GAME ULAR TANGGA PASUTRI -->
         <div id="tab-snake" class="hidden space-y-6">
             <div class="flex items-center justify-between bg-slate-900/60 p-4 rounded-2xl border border-slate-800 flex-wrap gap-3">
                 <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
@@ -326,7 +326,7 @@
                     <span>Kembali ke Menu</span>
                 </button>
                 <div class="text-center">
-                    <h3 class="font-serif text-xl font-bold text-romantic-300">Ular Tangga Hot 🎲</h3>
+                    <h3 class="font-serif text-xl font-bold text-romantic-300">Ular Tangga Couple Hot Hot 🎲</h3>
                     <p class="text-xs text-slate-400" id="snakeInstructionBanner">Giliran: <span id="currentTurnName" class="font-bold text-romantic-400">Bagus</span> (Lempar Dadu Terlebih Dahulu!)</p>
                 </div>
                 <button type="button" onclick="resetSnakeGame()" class="px-4 py-2 rounded-xl bg-romantic-600/20 border border-romantic-500/40 hover:bg-romantic-600/30 text-xs font-bold text-romantic-300 transition cursor-pointer">
@@ -388,7 +388,7 @@
 
                     <div class="space-y-4 bg-slate-950/60 p-4 rounded-2xl border border-slate-800 text-center">
                         <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Lempar Dadu Keberuntungan</div>
-                        <div id="diceDisplay" class="w-20 h-20 mx-auto rounded-2xl bg-gradient-to-tr from-romantic-600 to-pink-600 flex items-center justify-center text-white text-4xl font-black shadow-xl shadow-romantic-600/30">
+                        <div id="diceDisplay" onclick="rollDice()" class="w-20 h-20 cursor-pointer hover:scale-105 transition mx-auto rounded-2xl bg-gradient-to-tr from-romantic-600 to-pink-600 flex items-center justify-center text-white text-4xl font-black shadow-xl shadow-romantic-600/30 cursor-pointer" onclick="rollDice()">
                             <span id="diceIcon">🎲</span>
                         </div>
                         <button type="button" onclick="rollDice()" id="rollDiceBtn" class="w-full py-3 rounded-xl bg-gradient-to-r from-romantic-600 to-pink-600 hover:from-romantic-500 hover:to-pink-500 text-white font-bold shadow-lg shadow-romantic-600/40 transition flex items-center justify-center space-x-2 cursor-pointer">
@@ -504,7 +504,7 @@
                 <button type="button" onclick="switchTab('hub')" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold flex items-center space-x-2 transition cursor-pointer">
                     <span>⬅️</span><span>Kembali ke Menu</span>
                 </button>
-                <h3 class="font-serif text-xl font-bold text-emerald-300">Kuis Kecocokan 📋</h3>
+                <h3 class="font-serif text-xl font-bold text-emerald-300">Kuis Kecocokan Sweet Couple 📋</h3>
                 <div></div>
             </div>
 
@@ -626,7 +626,7 @@
                 <div class="space-y-2">
                     <label class="block text-xs font-bold text-slate-300">Tulis Catatan / Pesan Cinta Rahasia Hari Ini:</label>
                     <textarea id="loveNoteInput" rows="3" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-xs text-white focus:border-cyan-500 outline-none" placeholder="Tulis ungkapan cinta atau pesan untuk pasanganmu di sini..."></textarea>
-                    <button type="button" onclick="saveLoveNote()" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition cursor-pointer">Simpan Catatan Cinta</button>
+                    <button type="button" onclick="saveLoveNote()" class="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white text-xs font-bold transition cursor-pointer">Simpan Catatan kotak</button>
                 </div>
 
                 <div id="savedNotesContainer" class="max-h-32 overflow-y-auto space-y-2 text-xs text-slate-300"></div>
@@ -655,7 +655,7 @@
 
     <!-- AUDIO BACKSOUND INTIM -->
     <audio id="bgmAudio" loop>
-        <source src="https://cdns.iconscout.com/audio/preview/mp3/romantic-lofi-chill-beat-preview-482.mp3" type="audio/mpeg">
+        <source src="CAS.mp3" type="audio/mpeg">
     </audio>
 
     <!-- SCRIPT JAVASCRIPT -->
@@ -664,7 +664,7 @@
             p1Name: "Bagus",
             p2Name: "Bunga",
             p1Pos: 1,
-            p2Pos: 1,
+            p2Pos: 2,
             p1Score: 0,
             p2Score: 0,
             p1Coins: 0,
@@ -702,8 +702,8 @@
         function generateSeductionPrompt() {
             const randomPhrase = seductionPhrases[Math.floor(Math.random() * seductionPhrases.length)];
             document.getElementById('seductionText').innerText = `"${randomPhrase}"`;
-            gameState.p1Coins += 5;
-            gameState.p2Coins += 5;
+            gameState.p1Score += 500; gameState.p1Coins += 50;
+            gameState.p2Score += 500; gameState.p2Coins += 50;
             updateSnakeTokens();
             saveGameData();
             playSound('win');
@@ -723,11 +723,11 @@
                 loveNotes: gameState.loveNotes,
                 annivDate: gameState.annivDate
             };
-            localStorage.setItem('pasutri_love_hub_save', JSON.stringify(dataToSave));
+            localStorage.setItem('couple_love_hub_save', JSON.stringify(dataToSave));
         }
 
         function loadGameData() {
-            const savedData = localStorage.getItem('pasutri_love_hub_save_v2');
+            const savedData = localStorage.getItem('couple_love_hub_save_v2');
             if (savedData) {
                 try {
                     const parsed = JSON.parse(savedData);
@@ -763,13 +763,13 @@
                 loveNotes: gameState.loveNotes,
                 annivDate: gameState.annivDate
             };
-            localStorage.setItem('pasutri_love_hub_save_v2', JSON.stringify(dataToSave));
+            localStorage.setItem('couple_love_hub_save_v2', JSON.stringify(dataToSave));
         }
 
         function resetAllGameData() {
             if (confirm("Yakin ingin mereset koin dan progres ke 0? Fitur save lainnya akan tetap aktif.")) {
-                localStorage.removeItem('pasutri_love_hub_save_v2');
-                localStorage.removeItem('pasutri_love_hub_save');
+                localStorage.removeItem('couple_love_hub_save_v2');
+                localStorage.removeItem('couple_love_hub_save');
                 gameState.p1Coins = 0;
                 gameState.p2Coins = 0;
                 gameState.p1Score = 0;
@@ -863,8 +863,8 @@
                 origin: { y: 0.5 },
                 colors: ['#f43f5e', '#ff2a5f', '#fb7185', '#fda4af', '#f59e0b', '#ec4899']
             });
-            gameState.p1Coins += 10;
-            gameState.p2Coins += 10;
+            gameState.p1Score += 1000; gameState.p1Coins += 100;
+            gameState.p2Score += 1000; gameState.p2Coins += 100;
             updateSnakeTokens();
             saveGameData();
             playSound('win');
@@ -888,24 +888,181 @@
         }
 
         // ULAR TANGGA LOGIC
-        const snakeSpecialTiles = {
-            3: { type: 'ladder', to: 12, text: "Tangga Cinta! Berikan ciuman hangat di bibir pasangan selama 10 detik. 💋" },
-            7: { type: 'snake', to: 2, text: "Ular Rayuan! Bisikkan kalimat paling menggoda di telinga pasangan. 🔥" },
-            11: { type: 'hot', text: "Kotak Hot! Berikan pijatan sensual di pundak pasangan selama 1 menit. 💆‍♂️" },
-            15: { type: 'ladder', to: 24, text: "Tangga Mesra! Sebutkan 3 hal paling seksi yang kamu suka dari pasanganmu. ❤️" },
-            19: { type: 'snake', to: 10, text: "Ular Cemburu! Berikan pelukan erat dari belakang tanpa suara selama 30 detik. 🤗" },
-            22: { type: 'hot', text: "Kotak Foreplay! Berikan kecupan lembut di leher pasangan. 🍷" },
-            27: { type: 'ladder', to: 32, text: "Tangga Kilat! Saling tatap mata dan katakan 'Aku cinta kamu' dengan penuh gairah. ✨" },
-            30: { type: 'snake', to: 18, text: "Ular Hukuman! Pasangan berhak memberikan 1 tantangan fisik bebas. 😈" }
+                                        const snakeSpecialTiles = {
+            2: { type: 'hot', text: "Kotak Sentuhan! Bisikkan apa yang paling kamu suka dari aroma tubuh pasangan. 🍷" },
+            3: { type: 'ladder', to: 15, text: "Tangga Cinta! Cium bibir pasangan selama 15 detik penuh. 💋" },
+            5: { type: 'hot', text: "Kotak Nakal Dikit! Berikan pijatan lembut di telapak tangan sambil menatap matanya. ✨" },
+            7: { type: 'snake', to: 3, text: "Ular Rayuan! Bisikkan kalimat paling seksi di telinga pasangan. 🔥" },
+            8: { type: 'hot', text: "Kotak Gairah! Gigit bibir pelan dan berikan tatapan paling menggoda. 🥂" },
+            10: { type: 'ladder', to: 22, text: "Tangga Mesra! Puji 3 bagian tubuh pasangan yang paling membuatmu terpesona. ❤️" },
+            11: { type: 'hot', text: "Kotak Hot! Berikan pijatan sensual di pundak selama 1 menit. 💆‍♂️" },
+            13: { type: 'hot', text: "Kotak Foreplay! Berikan kecupan lembut di leher pasangan. 💋" },
+            14: { type: 'ladder', to: 28, text: "Tangga Intim! Sebutkan 3 hal paling menggoda yang kamu suka dari pasangan. 💖" },
+            16: { type: 'hot', text: "Kotak Steamy! Sentuh lembut pinggang pasangan dan bisikkan rencana malam ini. 🔥" },
+            18: { type: 'snake', to: 10, text: "Ular Cemburu! Peluk erat pasangan dari belakang tanpa suara selama 30 detik. 🤗" },
+            20: { type: 'ladder', to: 35, text: "Tangga Panas! Cium hangat di leher belakang pasangan selama 10 detik. 🍷" },
+            21: { type: 'hot', text: "Kotak Nakal Banyak! Biarkan pasangan membuka 1 kancing bajumu perlahan. 😈" },
+            23: { type: 'hot', text: "Kotak Gairah! Berikan kecupan lembut di leher pasangan. 💋" },
+            25: { type: 'hot', text: "Kotak Sensual! Berikan cubitan gemas di pinggang pasangan. 🤭" },
+            26: { type: 'ladder', to: 39, text: "Tangga Kilat! Saling tatap mata dan katakan 'Aku mau kamu seutuhnya' dengan penuh gairah. ✨" },
+            29: { type: 'hot', text: "Kotak Hot Hot! Tepuk pelan paha pasangan dan berikan senyuman paling nakal. 🔥" },
+            31: { type: 'snake', to: 15, text: "Ular Jebakan! Pasangan berhak memberikan 1 tantangan fisik bebas. 😈" },
+            33: { type: 'ladder', to: 47, text: "Tangga Gairah! Saling bertukar ciuman bibir mesra selama 20 detik tanpa putus. 💋" },
+            35: { type: 'hot', text: "Kotak Sensual! Usap lembut rambut pasangan sambil memuji kecantikannya/ketampanannya. 🌹" },
+            37: { type: 'hot', text: "Kotak Rayuan Maut! Pasangan berhak meminta gombalan paling lebay. 🥰" },
+            40: { type: 'ladder', to: 54, text: "Tangga Utama! Peluk erat tubuh pasangan erat-erat sambil meraba punggungnya. 🤗" },
+            42: { type: 'ladder', to: 52, text: "Tangga Panas! Cium hangat di kedua pipi dan kening pasangan. 😙" },
+            44: { type: 'hot', text: "Kotak Nakal Sekali! Gigit cuping telinga pasangan pelan-pelan. 🥵" },
+            45: { type: 'snake', to: 28, text: "Ular Malam! Bisikkan rencana nakal untuk nanti malam. 🌙" },
+            48: { type: 'hot', text: "Kotak Intim! Tempelkan dada ke dada pasangan dan rasakan detak jantungnya. 💓" },
+            50: { type: 'hot', text: "Kotak Sensual! Sentuh lembut pinggang pasangan dan tatap matanya. ✨" },
+            53: { type: 'hot', text: "Kotak Kejut! Pasangan berhak mencium bibirmu sekilas. 💋" },
+            56: { type: 'snake', to: 42, text: "Ular Kejut! Pasangan berhak mencium pipimu 3 kali berturut-turut. 💋" },
+            58: { type: 'ladder', to: 60, text: "Tangga Kemenangan! Bonus ciuman mesra bertubi-tubi! 💖" }
         };
+
+                
+        function drawSnakesAndLaddersSVG() {
+            const board = document.getElementById('snakeBoard');
+            if (!board) return;
+            
+            // Remove existing SVG overlay if any
+            let oldSvg = document.getElementById('boardSvgOverlay');
+            if (oldSvg) oldSvg.remove();
+
+            const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            svg.id = "boardSvgOverlay";
+            svg.style.position = "absolute";
+            svg.style.top = "0";
+            svg.style.left = "0";
+            svg.style.width = "100%";
+            svg.style.height = "100%";
+            svg.style.pointerEvents = "none";
+            svg.style.zIndex = "10";
+
+            board.style.position = "relative";
+            board.appendChild(svg);
+
+            // Helper to get tile center relative to board
+            function getTileCenter(tileNum) {
+                const tile = document.getElementById(`tile-${tileNum}`);
+                if (!tile) return {x: 0, y: 0};
+                const bRect = board.getBoundingClientRect();
+                const tRect = tile.getBoundingClientRect();
+                return {
+                    x: (tRect.left + tRect.width / 2) - bRect.left,
+                    y: (tRect.top + tRect.height / 2) - bRect.top
+                };
+            }
+
+            // Define connections
+            // ladders: green/gold, snakes: red/pink
+                                                const connections = [
+                {from: 3, to: 15, type: 'ladder'},
+                {from: 7, to: 3, type: 'snake'},
+                {from: 10, to: 22, type: 'ladder'},
+                {from: 14, to: 28, type: 'ladder'},
+                {from: 18, to: 10, type: 'snake'},
+                {from: 20, to: 35, type: 'ladder'},
+                {from: 26, to: 39, type: 'ladder'},
+                {from: 31, to: 15, type: 'snake'},
+                {from: 33, to: 47, type: 'ladder'},
+                {from: 40, to: 54, type: 'ladder'},
+                {from: 42, to: 52, type: 'ladder'},
+                {from: 45, to: 28, type: 'snake'},
+                {from: 56, to: 42, type: 'snake'},
+                {from: 58, to: 60, type: 'ladder'}
+            ];
+
+            connections.forEach(conn => {
+                const p1 = getTileCenter(conn.from);
+                const p2 = getTileCenter(conn.to);
+                if (p1.x === 0 || p2.x === 0) return;
+
+                if (conn.type === 'ladder') {
+                    // Draw ladder (double parallel lines with rungs)
+                    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                    
+                    // Offset for parallel lines
+                    const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+                    const perp = angle + Math.PI / 2;
+                    const dx = Math.cos(perp) * 6;
+                    const dy = Math.sin(perp) * 6;
+
+                    // Rail 1
+                    const line1 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line1.setAttribute("x1", p1.x + dx);
+                    line1.setAttribute("y1", p1.y + dy);
+                    line1.setAttribute("x2", p2.x + dx);
+                    line1.setAttribute("y2", p2.y + dy);
+                    line1.setAttribute("stroke", "#10b981");
+                    line1.setAttribute("stroke-width", "4");
+                    line1.setAttribute("stroke-linecap", "round");
+                    g.appendChild(line1);
+
+                    // Rail 2
+                    const line2 = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line2.setAttribute("x1", p1.x - dx);
+                    line2.setAttribute("y1", p1.y - dy);
+                    line2.setAttribute("x2", p2.x - dx);
+                    line2.setAttribute("y2", p2.y - dy);
+                    line2.setAttribute("stroke", "#10b981");
+                    line2.setAttribute("stroke-width", "4");
+                    line2.setAttribute("stroke-linecap", "round");
+                    g.appendChild(line2);
+
+                    // Rungs
+                    const steps = 6;
+                    for (let s = 1; s < steps; s++) {
+                        const t = s / steps;
+                        const rx = p1.x + (p2.x - p1.x) * t;
+                        const ry = p1.y + (p2.y - p1.y) * t;
+                        const rung = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        rung.setAttribute("x1", rx + dx);
+                        rung.setAttribute("y1", ry + dy);
+                        rung.setAttribute("x2", rx - dx);
+                        rung.setAttribute("y2", ry - dy);
+                        rung.setAttribute("stroke", "#34d399");
+                        rung.setAttribute("stroke-width", "3");
+                        g.appendChild(rung);
+                    }
+                    svg.appendChild(g);
+
+                } else {
+                    // Draw snake as a clean dashed line (garis putus-putus)
+                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line.setAttribute("x1", p1.x);
+                    line.setAttribute("y1", p1.y);
+                    line.setAttribute("x2", p2.x);
+                    line.setAttribute("y2", p2.y);
+                    line.setAttribute("stroke", "#f43f5e");
+                    line.setAttribute("stroke-width", "6");
+                    line.setAttribute("stroke-dasharray", "8,8");
+                    line.setAttribute("stroke-linecap", "round");
+                    line.setAttribute("filter", "drop-shadow(0px 2px 4px rgba(0,0,0,0.5))");
+                    svg.appendChild(line);
+
+                    // Snake head circle at p1
+                    const head = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    head.setAttribute("cx", p1.x);
+                    head.setAttribute("cy", p1.y);
+                    head.setAttribute("r", "6");
+                    head.setAttribute("fill", "#fda4af");
+                    head.setAttribute("stroke", "#be123c");
+                    head.setAttribute("stroke-width", "2");
+                    svg.appendChild(head);
+                }
+            });
+        }
+
 
         function initSnakeBoard() {
             const board = document.getElementById('snakeBoard');
             if (!board) return;
             board.innerHTML = '';
-            for (let i = 36; i >= 1; i--) {
+            for (let i = 60; i >= 1; i--) {
                 const tile = document.createElement('div');
-                tile.className = "h-16 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between p-1.5 relative text-xs font-bold transition hover:border-romantic-500/80 cursor-pointer";
+                tile.className = "h-14 sm:h-16 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between p-1.5 relative text-xs font-bold transition hover:border-romantic-500/80 cursor-pointer";
                 tile.id = `tile-${i}`;
                 tile.onclick = () => handleTileClick(i);
                 
@@ -913,13 +1070,13 @@
                 if (snakeSpecialTiles[i]) {
                     if (snakeSpecialTiles[i].type === 'ladder') {
                         tile.classList.add('border-emerald-500/50', 'bg-emerald-950/20');
-                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🪜</span>`;
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs" title="Tangga Cinta (Naik)">🪜</span>`;
                     } else if (snakeSpecialTiles[i].type === 'snake') {
                         tile.classList.add('border-rose-500/50', 'bg-rose-950/20');
-                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🐍</span>`;
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs" title="Ular Rayuan (Turun)">🐍</span>`;
                     } else if (snakeSpecialTiles[i].type === 'hot') {
                         tile.classList.add('border-romantic-500/50', 'bg-romantic-950/20');
-                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs">🔥</span>`;
+                        iconHTML = `<span class="absolute bottom-1 right-1 text-xs" title="Kotak Hot">🔥</span>`;
                     }
                 }
 
@@ -931,69 +1088,72 @@
                 board.appendChild(tile);
             }
             updateSnakeTokens();
+            setTimeout(drawSnakesAndLaddersSVG, 50);
         }
 
         function updateSnakeTokens() {
-            for (let i = 1; i <= 36; i++) {
+            for (let i = 1; i <= 60; i++) {
                 const spot = document.getElementById(`tokens-${i}`);
                 if (spot) spot.innerHTML = '';
             }
 
             const p1Spot = document.getElementById(`tokens-${gameState.p1Pos}`);
             if (p1Spot) {
-                p1Spot.innerHTML += `<div class="w-6 h-6 rounded-full bg-cyan-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-xs shadow-lg transform hover:scale-110 transition p-0.5" title="${gameState.p1Name}"><img src="dick.png" alt="P1" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🤵',className:'text-xs'}))"></div>`;
+                p1Spot.innerHTML += `<div class="w-9 h-9 rounded-full bg-cyan-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-sm shadow-xl transform hover:scale-110 transition p-1" title="${gameState.p1Name}"><img src="dick.png" alt="P1" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🤵',className:'text-sm font-bold'}))"></div>`;
             }
 
             const p2Spot = document.getElementById(`tokens-${gameState.p2Pos}`);
             if (p2Spot) {
-                p2Spot.innerHTML += `<div class="w-6 h-6 rounded-full bg-pink-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-xs shadow-lg transform hover:scale-110 transition p-0.5" title="${gameState.p2Name}"><img src="vagina.png" alt="P2" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'👰',className:'text-xs'}))"></div>`;
+                p2Spot.innerHTML += `<div class="w-9 h-9 rounded-full bg-pink-400 border-2 border-slate-950 flex items-center justify-center text-slate-950 text-sm shadow-xl transform hover:scale-110 transition p-1" title="${gameState.p2Name}"><img src="vagina.png" alt="P2" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'👰',className:'text-sm font-bold'}))"></div>`;
             }
 
-            document.getElementById('p1Pos').innerText = gameState.p1Pos;
-            document.getElementById('p2Pos').innerText = gameState.p2Pos;
-            document.getElementById('p1ScoreVal').innerText = gameState.p1Score;
-            document.getElementById('p2ScoreVal').innerText = gameState.p2Score;
-            document.getElementById('p1Coins').innerText = gameState.p1Coins;
-            document.getElementById('p2Coins').innerText = gameState.p2Coins;
+            const el1 = document.getElementById('p1Pos'); if (el1) el1.innerText = gameState.p1Pos;
+            const el2 = document.getElementById('p2Pos'); if (el2) el2.innerText = gameState.p2Pos;
+            const el3 = document.getElementById('p1ScoreVal'); if (el3) el3.innerText = gameState.p1Score;
+            const el4 = document.getElementById('p2ScoreVal'); if (el4) el4.innerText = gameState.p2Score;
+            const el5 = document.getElementById('p1Coins'); if (el5) el5.innerText = gameState.p1Coins;
+            const el6 = document.getElementById('p2Coins'); if (el6) el6.innerText = gameState.p2Coins;
             
             const totalCoins = gameState.p1Coins + gameState.p2Coins;
-            document.getElementById('globalLoveCoins').innerText = totalCoins;
-            document.getElementById('voucherLoveCoins').innerText = totalCoins;
+            const el7 = document.getElementById('globalLoveCoins'); if (el7) el7.innerText = totalCoins;
+            const el8 = document.getElementById('voucherLoveCoins'); if (el8) el8.innerText = totalCoins;
 
             const currentName = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
-            document.getElementById('currentTurnName').innerText = currentName;
-            document.getElementById('labelP1Name').innerText = gameState.p1Name;
-            document.getElementById('labelP2Name').innerText = gameState.p2Name;
-            document.getElementById('navP1Name').innerText = gameState.p1Name;
-            document.getElementById('navP2Name').innerText = gameState.p2Name;
-            document.getElementById('navP1Score').innerText = gameState.p1Score + ' pts';
-            document.getElementById('navP2Score').innerText = gameState.p2Score + ' pts';
+            const el9 = document.getElementById('currentTurnName'); if (el9) el9.innerText = currentName;
+            const el10 = document.getElementById('labelP1Name'); if (el10) el10.innerText = gameState.p1Name;
+            const el11 = document.getElementById('labelP2Name'); if (el11) el11.innerText = gameState.p2Name;
+            const el12 = document.getElementById('navP1Name'); if (el12) el12.innerText = gameState.p1Name;
+            const el13 = document.getElementById('navP2Name'); if (el13) el13.innerText = gameState.p2Name;
+            const el14 = document.getElementById('navP1Score'); if (el14) el14.innerText = gameState.p1Score + ' pts';
+            const el15 = document.getElementById('navP2Score'); if (el15) el15.innerText = gameState.p2Score + ' pts';
 
             const p1Card = document.getElementById('p1Card');
             const p2Card = document.getElementById('p2Card');
-            if (gameState.turn === 1) {
-                p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-cyan-400 shadow-md transition-all";
-                p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
-            } else {
-                p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
-                p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-pink-400 shadow-md transition-all";
+            if (p1Card && p2Card) {
+                if (gameState.turn === 1) {
+                    p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-cyan-400 shadow-md transition-all";
+                    p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
+                } else {
+                    p1Card.className = "p-4 rounded-2xl bg-slate-900/80 border border-slate-700 shadow-md transition-all";
+                    p2Card.className = "p-4 rounded-2xl bg-slate-900/80 border-2 border-pink-400 shadow-md transition-all";
+                }
             }
 
             const banner = document.getElementById('snakeInstructionBanner');
             const diceBtnText = document.getElementById('diceBtnText');
-            if (gameState.isRolling) {
-                banner.innerHTML = `<span class="text-amber-400 font-bold">🎲 Dadu sedang berputar...</span>`;
-                diceBtnText.innerText = "Memutar Dadu...";
-            } else if (gameState.waitingForMove) {
-                banner.innerHTML = `<span class="text-emerald-400 font-bold">✨ Dapat dadu ${gameState.lastRolledValue}! Klik kotak tujuan di papan.</span>`;
-                diceBtnText.innerText = `Pilih Kotak (${gameState.lastRolledValue})`;
-            } else {
-                banner.innerHTML = `Giliran: <span class="font-bold text-romantic-400">${currentName}</span> (Lempar Dadu!)`;
-                diceBtnText.innerText = "Lempar Dadu";
+            if (banner && diceBtnText) {
+                if (gameState.isRolling) {
+                    banner.innerHTML = `<span class="text-amber-400 font-bold">🎲 Dadu sedang berputar...</span>`;
+                    diceBtnText.innerText = "Memutar Dadu...";
+                } else if (gameState.waitingForMove) {
+                    banner.innerHTML = `<span class="text-emerald-400 font-bold">✨ Dapat dadu ${gameState.lastRolledValue}! Klik kotak tujuan di papan.</span>`;
+                    diceBtnText.innerText = `Pilih Kotak (${gameState.lastRolledValue})`;
+                } else {
+                    banner.innerHTML = `Giliran: <span class="font-bold text-romantic-400">${currentName}</span> (Lempar Dadu!)`;
+                    diceBtnText.innerText = "Lempar Dadu";
+                }
             }
-        }
-
-        function rollDice() {
+        }function rollDice() {
             if (gameState.isRolling || gameState.waitingForMove) return;
             gameState.isRolling = true;
             updateSnakeTokens();
@@ -1020,7 +1180,7 @@
             }, 80);
         }
 
-        function handleTileClick(tileNum) {
+                async function handleTileClick(tileNum) {
             if (!gameState.waitingForMove) {
                 alert("🎲 Lempar dadu terlebih dahulu sebelum menggerakkan pion!");
                 return;
@@ -1028,57 +1188,91 @@
 
             const currentPos = gameState.turn === 1 ? gameState.p1Pos : gameState.p2Pos;
             let targetPos = currentPos + gameState.lastRolledValue;
-            if (targetPos > 36) targetPos = 36;
+            if (targetPos > 60) targetPos = 60;
 
             if (tileNum !== targetPos && tileNum !== currentPos) {
                 alert(`⚠️ Langkah tidak valid! Dadu menunjukkan angka ${gameState.lastRolledValue}. Kamu harus mendarat di kotak ${targetPos}.`);
                 return;
             }
 
-            playSound('move');
             gameState.waitingForMove = false;
+
+            // Step-by-step animation from currentPos to targetPos
+            for (let step = currentPos + 1; step <= targetPos; step++) {
+                playSound('move');
+                if (gameState.turn === 1) gameState.p1Pos = step;
+                else gameState.p2Pos = step;
+                updateSnakeTokens();
+                await new Promise(r => setTimeout(r, 220)); // smooth delay per step
+            }
 
             let finalPos = targetPos;
             let specialMsg = "";
-            if (snakeSpecialTiles[finalPos]) {
-                const tileInfo = snakeSpecialTiles[finalPos];
+            let isLadder = false;
+            let isSnake = false;
+
+            if (snakeSpecialTiles[targetPos]) {
+                const tileInfo = snakeSpecialTiles[targetPos];
                 specialMsg = tileInfo.text;
                 if (tileInfo.to) {
                     finalPos = tileInfo.to;
+                    if (tileInfo.type === 'ladder') isLadder = true;
+                    if (tileInfo.type === 'snake') isSnake = true;
                     specialMsg += ` Pindah ke kotak ${finalPos}!`;
                 }
             }
 
+            if (isLadder || isSnake) {
+                await new Promise(r => setTimeout(r, 300));
+                playSound('win');
+                // Smooth slide animation along ladder or snake
+                const stepsCount = 10;
+                const startP = targetPos;
+                const endP = finalPos;
+                for (let s = 1; s <= stepsCount; s++) {
+                    const interpolated = Math.round(startP + (endP - startP) * (s / stepsCount));
+                    if (gameState.turn === 1) gameState.p1Pos = interpolated;
+                    else gameState.p2Pos = interpolated;
+                    updateSnakeTokens();
+                    await new Promise(r => setTimeout(r, 60));
+                }
+            }
+
             if (gameState.turn === 1) {
-                gameState.p1Pos = finalPos;
-                gameState.p1Score += gameState.lastRolledValue * 10;
-                gameState.p1Coins += 15;
+                gameState.p1Score += gameState.lastRolledValue * 500;
+                gameState.p1Coins += 3;
             } else {
-                gameState.p2Pos = finalPos;
-                gameState.p2Score += gameState.lastRolledValue * 10;
-                gameState.p2Coins += 15;
+                gameState.p2Score += gameState.lastRolledValue * 500;
+                gameState.p2Coins += 3;
             }
 
             updateSnakeTokens();
             saveGameData();
 
-            if (specialMsg) alert(`✨ Pion bergerak ke kotak ${targetPos}!\n\n${specialMsg}`);
+            if (specialMsg) {
+                setTimeout(() => {
+                    alert(`✨ ${isLadder ? '🪜 NAIK TANGGA CINTA!' : isSnake ? '🐍 TURUN ULAR RAYUAN!' : '🔥 KOTAK HOT!'} ${specialMsg}`);
+                }, 100);
+            }
 
-            if (finalPos === 36) {
+            if (finalPos === 60) {
                 const winner = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
                 triggerLoveBomb();
-                alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA HOT! +50 Bonus Love Coins!`);
-                if (gameState.turn === 1) gameState.p1Coins += 50; else gameState.p2Coins += 50;
+                alert(`🏆 SELAMAT ${winner.toUpperCase()} MENANG ULAR TANGGA! +50 Bonus Love Coins!`);
+                if (gameState.turn === 1) { gameState.p1Score += 5000; gameState.p1Coins += 500; } else { gameState.p2Score += 5000; gameState.p2Coins += 500; }
                 resetSnakeGame();
                 return;
             }
 
-            gameState.turn = gameState.turn === 1 ? 2 : 1;
+            if (gameState.lastRolledValue === 6) {
+                alert(`🎲 HOKI BANGET! Dapat Dadu 6! ${gameState.turn === 1 ? gameState.p1Name : gameState.p2Name} dapat kesempatan LEMPAR DADU LAGI! 🔥`);
+                // keep same turn
+            } else {
+                gameState.turn = gameState.turn === 1 ? 2 : 1;
+            }
             updateSnakeTokens();
             saveGameData();
-        }
-
-        function resetSnakeGame() {
+        }function resetSnakeGame() {
             gameState.p1Pos = 1;
             gameState.p2Pos = 1;
             gameState.turn = 1;
@@ -1164,7 +1358,7 @@
         function completeTodTask(success) {
             playSound('win');
             if (success) {
-                gameState.p1Coins += 20;
+                gameState.p1Score += 1000; gameState.p1Coins += 100;
                 alert("Hebat! +20 Love Coins ditambahkan!");
             }
             document.getElementById('todCardContent').style.display = 'none';
@@ -1307,25 +1501,56 @@
         }
 
         // KUIS
-        const quizQuestions = [
-            { q: "Apa makanan favorit yang paling sering dipesan saat kalian nge-date?", options: ["Martabak Manis", "Sate Ayam Madura", "Seafood Bakar", "Burger & Kentang"], correct: 0 },
-            { q: "Apa kebiasaan kecilku yang paling sering bikin kamu tersenyum/gemas?", options: ["Ngorok halus pas tidur", "Muka cemberut kalau lapar", "Suka nyanyi di kamar mandi", "Nge-chat panjang pas kangen"], correct: 1 },
-            { q: "Destinasi liburan impian nomor 1 yang paling ingin kita kunjungi bersama?", options: ["Pantai Tropis Bali/Lombok", "Pegunungan Dingin Dieng", "Jepang / Korea", "Staycation Mewah"], correct: 2 }
+                        const quizQuestions = [
+            { 
+                q: "Kalau lagi weekend atau libur seharian, enaknya ngapain berdua?", 
+                options: ["Nongkrong santai di kafe / Tembalang", "Staycation rebahan nyaman & nonton film", "Jalan-jalan kulineran keliling Semarang", "Jalan-jalan ke Wonosobo / luar kota"]
+            },
+            { 
+                q: "Apa hal atau sifat dariku yang paling bikin kamu jatuh cinta?", 
+                options: ["Perhatian & selalu ada waktu", "Suka ngelawak / bikin ketawa", "Mandiri & pekerja keras", "Penyayang & sabar banget"]
+            },
+            { 
+                q: "Kalau lagi kangen berat pas LDR, apa yang paling sering dikangenin?", 
+                options: ["Ngobrol dan pelukan langsung", "Suara dan ketawa pas video call", "Jalan-jalan dan makan berdua", "Suasana pas lagi di samping satu sama lain"]
+            },
+            { 
+                q: "Apa mimpi atau hal utama yang paling ingin kita wujudkan bersama?", 
+                options: ["Punya usaha/bisnis sukses bareng", "Travel keliling tempat impian", "Punya rumah idaman yang nyaman", "Hidup bahagia tenang selamanya berdua"]
+            },
+            { 
+                q: "Menu makanan apa yang paling jadi andalan kalau lagi kelaparan malam-malam?", 
+                options: ["Mie instan / Indomie rebus spesial", "Nasi goreng / kuliner malam pinggir jalan", "Martabak manis atau terang bulan", "Burger / cemilan gurih"]
+            }
         ];
 
         let currentQuizIndex = 0;
         let quizScoreVal = 0;
+        let p1CurrentChoice = null;
+        let quizStateStep = 'p1_turn'; // 'p1_turn', 'p2_turn', 'result'
 
         function loadQuizQuestion() {
             const container = document.getElementById('quizContainer');
             if (!container) return;
 
             if (currentQuizIndex >= quizQuestions.length) {
+                const percentage = Math.round((quizScoreVal / quizQuestions.length) * 100);
+                let message = "💖 Pasangan Sejiwa! Hati dan pikiran kalian benar-benar sefrekuensi!";
+                if (percentage < 60) message = "🔥 Makin sering ngobrol & deep talk biar makin sehati ya sayang!";
+                
                 container.innerHTML = `
-                    <div class="text-center space-y-4">
-                        <h4 class="font-serif text-2xl font-bold text-emerald-300">Kuis Kecocokan Selesai! 🎉</h4>
-                        <p class="text-slate-300">Skor Kecocokan: <strong class="text-emerald-400">${Math.round((quizScoreVal / quizQuestions.length) * 100)}%</strong></p>
-                        <button type="button" onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold cursor-pointer shadow-lg">Ulangi Kuis</button>
+                    <div class="text-center space-y-6 py-4">
+                        <div class="w-20 h-20 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center text-4xl mx-auto shadow-xl border border-emerald-500/40 animate-bounce">🏆</div>
+                        <h4 class="font-serif text-2xl font-bold text-emerald-300">Kuis Kecocokan Selesai!</h4>
+                        <div class="bg-slate-950 p-6 rounded-2xl border border-emerald-500/30 space-y-2 max-w-md mx-auto">
+                            <p class="text-xs text-slate-400">Tingkat Kecocokan Bagus & Bunga:</p>
+                            <div class="text-4xl font-extrabold text-emerald-400">${percentage}%</div>
+                            <p class="text-xs font-serif italic text-emerald-200 mt-2">"${message}"</p>
+                        </div>
+                        <div class="flex justify-center gap-3">
+                            <button type="button" onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold cursor-pointer shadow-lg transition">Ulangi Kuis 🔄</button>
+                            <button type="button" onclick="switchTab('hub')" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold cursor-pointer transition">Kembali ke Menu 🏠</button>
+                        </div>
                     </div>
                 `;
                 saveGameData();
@@ -1335,23 +1560,63 @@
             const qData = quizQuestions[currentQuizIndex];
             document.getElementById('quizProgress').innerText = `Pertanyaan ${currentQuizIndex + 1} dari ${quizQuestions.length}`;
             document.getElementById('quizScore').innerText = quizScoreVal;
-            document.getElementById('quizQuestion').innerText = qData.q;
+
+            let turnHeader = "";
+            let turnBadgeColor = "";
+            let turnPlayerName = "";
+            
+            if (quizStateStep === 'p1_turn') {
+                turnPlayerName = gameState.p1Name;
+                turnBadgeColor = "bg-cyan-500/20 text-cyan-300 border-cyan-500/40";
+                turnHeader = `🤵 Giliran <span class="font-bold text-cyan-300">${gameState.p1Name}</span> memilih rahasia (Pilih jawabanmu):`;
+            } else {
+                turnPlayerName = gameState.p2Name;
+                turnBadgeColor = "bg-pink-500/20 text-pink-300 border-pink-500/40";
+                turnHeader = `👰 Giliran <span class="font-bold text-pink-300">${gameState.p2Name}</span> menebak & memilih (Cocokkan dengan pilihan ${gameState.p1Name}!):`;
+            }
+            
+            container.innerHTML = `
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between flex-wrap gap-2">
+                        <div class="inline-block px-3 py-1 rounded-full text-xs font-bold border ${turnBadgeColor}">Pertanyaan ${currentQuizIndex + 1}</div>
+                        <span class="text-xs font-bold text-slate-300">${turnHeader}</span>
+                    </div>
+                    <h4 class="font-serif text-xl md:text-2xl font-bold leading-relaxed text-slate-100">${qData.q}</h4>
+                    <div id="quizOptions" class="grid grid-cols-1 gap-3 pt-2"></div>
+                </div>
+            `;
 
             const optContainer = document.getElementById('quizOptions');
-            optContainer.innerHTML = '';
             qData.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = "w-full text-left p-4 rounded-2xl bg-slate-900/80 border border-slate-700 hover:border-emerald-500 text-sm font-semibold transition flex items-center justify-between cursor-pointer";
-                btn.innerHTML = `<span>${opt}</span> <span>➡️</span>`;
+                btn.className = "w-full text-left p-4 rounded-2xl bg-slate-900/90 border border-slate-700 hover:border-emerald-500 hover:bg-emerald-950/20 text-sm font-semibold transition flex items-center justify-between cursor-pointer shadow-md";
+                btn.innerHTML = `<span class="text-slate-200">${opt}</span> <span class="text-emerald-400 font-bold">Pilih ➡️</span>`;
                 btn.onclick = () => {
                     playSound('click');
-                    if (idx === qData.correct) {
-                        quizScoreVal += 1;
-                        triggerLoveBomb();
+                    if (quizStateStep === 'p1_turn') {
+                        p1CurrentChoice = idx;
+                        quizStateStep = 'p2_turn';
+                        loadQuizQuestion();
+                    } else {
+                        // Compare p1CurrentChoice and idx (p2 choice)
+                        const p2Choice = idx;
+                        if (p1CurrentChoice === p2Choice) {
+                            quizScoreVal += 1;
+                            gameState.p1Score += 1000; gameState.p1Coins += 100;
+                            gameState.p2Score += 1000; gameState.p2Coins += 100;
+                            triggerLoveBomb();
+                            alert(`🎉 COCOK BANGET! Pilihan ${gameState.p1Name} dan ${gameState.p2Name} SAMA PERSIS! +1,000 PTS & +100 Coins! 🥂❤️`);
+                        } else {
+                            playSound('move');
+                            alert(`❌ Belum sama nih! ${gameState.p1Name} memilih "${qData.options[p1CurrentChoice]}" tapi ${gameState.p2Name} memilih "${qData.options[p2Choice]}". Yuk lanjut pertanyaan berikutnya! ❤️`);
+                        }
+                        p1CurrentChoice = null;
+                        quizStateStep = 'p1_turn';
+                        currentQuizIndex++;
+                        loadQuizQuestion();
+                        updateSnakeTokens();
                     }
-                    currentQuizIndex++;
-                    loadQuizQuestion();
                 };
                 optContainer.appendChild(btn);
             });
@@ -1361,43 +1626,145 @@
             playSound('click');
             currentQuizIndex = 0;
             quizScoreVal = 0;
-            document.getElementById('quizContainer').innerHTML = `
-                <h4 id="quizQuestion" class="font-serif text-xl font-bold leading-relaxed">Apa hal yang paling sering bikin pasanganmu tersenyum di pagi hari?</h4>
-                <div id="quizOptions" class="grid grid-cols-1 gap-3"></div>
-            `;
+            p1CurrentChoice = null;
+            quizStateStep = 'p1_turn';
             loadQuizQuestion();
         }
 
         // VOUCHERS
-        const voucherDatabase = [
-            { name: "Voucher Pijat Punggung Sensual 15 Menit", cost: 50, desc: "Hak pijat santai dari pasangan tanpa protes." },
-            { name: "Request Menu Masakan Spesial", cost: 80, desc: "Pasangan wajib memasak makanan kesukaanmu." },
-            { name: "Hak Veto Bebas Tugas Rumah", cost: 120, desc: "Bebas dari cuci piring atau bersih-bersih 1 hari." },
-            { name: "Movie Night Pilihan Sendiri", cost: 60, desc: "Bebas pilih film tontonan malam minggu." }
+                const voucherDatabase = [
+            { name: "Request Makanan Spesial 🍲", cost: 150, desc: "Bebas minta masakan atau kuliner favorit dibawain/dibuat." },
+            { name: "Pijat / Salon Dibayarin Bagus 💅💆‍♂️", cost: 250, desc: "Manjain diri ke salon atau spa treatment, dibayarin sepenuhnya." },
+            { name: "Movie Night Bioskop / Netflix 🍿", cost: 180, desc: "Nonton film pilihanmu lengkap dengan cemilan favorit." },
+            { name: "Hak Veto Bebas Pengen Apa 👑🔥", cost: 500, desc: "Voucher paling sakti! Bebas minta apa aja tanpa bisa ditolak." },
+            { name: "Pijat Sensual 15 Menit (Nakal Dikit) 🍷", cost: 200, desc: "Pijat relaksasi intim berdua di kamar dengan aroma terapi." },
+            { name: "Pilih Outfit Tidur Malam Ini (Nakal Dikit) 🩱", cost: 220, desc: "Kamu berhak memilihkan pakaian tidur seksi untuk pasangan." },
+            { name: "Akses Veto Foreplay Bebas (Nakal Banyak) 🔥😈", cost: 400, desc: "Hak penuh menentukan gaya dan skenario keintiman malam ini." },
+            { name: "Sesi Mandi Bareng / Scrubbing (Nakal Banyak) 🚿", cost: 450, desc: "Mandi romantis berdua dengan sentuhan dan sabun pilihan." }
         ];
 
+        const pointVouchers = [
+            { type: 'guy', name: "Minta PAP / Video Nakal Manis 📸", cost: 2000, desc: "Request khusus ke pasangan untuk mengirim foto/video nakal yang manis." },
+            { type: 'guy', name: "Hak Veto Gombalan & Pose Seksi 💋", cost: 3500, desc: "Minta pasangan berpose menggoda dan mengucapkan gombalan terpanas." },
+            { type: 'guy', name: "Request Pijatan Manja Tanpa Tolak 🔥", cost: 5000, desc: "Minta pijatan relaksasi fisik secara personal sesuai keinginanmu." },
+            { type: 'guy', name: "Hak Veto Skenario Intim Malam Ini 😈", cost: 10000, desc: "Voucher sakti personal untuk request skenario malam penuh gairah." },
+            { type: 'girl', name: "Minta Jajan/Makanan Favorit Dibawain 🍜", cost: 2000, desc: "Request agar pasangan membelikan dan mengantar makanan kesukaanmu." },
+            { type: 'girl', name: "Hak Veto Pijat Seluruh Badan Sampai Tidur 💆‍♀️", cost: 5000, desc: "Minta cowokmu memijit seluruh badan sampai kamu tertidur nyenyak." },
+            { type: 'girl', name: "Request Kejutan Manis Dadakan 🎁", cost: 7500, desc: "Minta hadiah atau kejutan kecil romantis secara mendadak." },
+            { type: 'girl', name: "Hak Veto Bebas Perintah Apa Saja 👑", cost: 10000, desc: "Voucher sakti cewek untuk meminta apa saja ke cowok tanpa penolakan." }
+        ];
+
+        const coinVouchers = [
+            { name: "Movie Night Bioskop / Netflix Berdua 🍿", cost: 1500, desc: "Nonton film romantis pilihan berdua lengkap dengan cemilan." },
+            { name: "Request Makanan Spesial Resto 🍲", cost: 2000, desc: "Pesan dan nikmati kuliner spesial favorit bersama pasangan." },
+            { name: "Spa / Salon Treatment Bareng 💅", cost: 3500, desc: "Sesi perawatan dan relaksasi berdua di tempat favorit." },
+            { name: "Hak Veto Aktivitas Bebas Berdua 👑", cost: 5000, desc: "Voucher bersama untuk menentukan agenda seharian penuh." }
+        ];
         function initVouchers() {
             const grid = document.getElementById('voucherGrid');
             if (!grid) return;
-            grid.innerHTML = '';
-            voucherDatabase.forEach(v => {
+            grid.innerHTML = `
+                <div class="md:col-span-2 lg:col-span-3 space-y-2 mb-2">
+                    <div class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-rose-500/40 flex-wrap gap-3">
+                        <div>
+                            <h4 class="font-serif text-lg font-bold text-rose-300">❤️ Love Points (PTS) — Request Personal / Nakal</h4>
+                            <p class="text-xs text-slate-400">Gunakan skor PTS (${gameState.p1Name}: <strong class="text-cyan-300">${gameState.p1Score}</strong> | ${gameState.p2Name}: <strong class="text-pink-300">${gameState.p2Score}</strong>) untuk request langsung ke pasangan.</p>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs">
+                            <span class="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full font-bold">🤵 ${gameState.p1Name}: ${gameState.p1Score.toLocaleString()} PTS</span>
+                            <span class="bg-pink-500/20 text-pink-300 px-3 py-1 rounded-full font-bold">👰 ${gameState.p2Name}: ${gameState.p2Score.toLocaleString()} PTS</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            pointVouchers.forEach(v => {
                 const card = document.createElement('div');
-                card.className = "glass-card rounded-3xl p-6 border border-amber-500/30 flex flex-col justify-between space-y-4 hover:border-amber-400 transition";
+                card.className = "glass-spicy rounded-3xl p-6 border border-rose-500/40 flex flex-col justify-between space-y-4 hover:border-rose-400 transition";
                 card.innerHTML = `
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4 p-2">
-                            <img src="icon_gift.png" alt="Gift" class="custom-icon" onerror="this.replaceWith(Object.assign(document.createElement('span'),{innerText:'🎁',className:'text-xl'}))">
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-300 flex items-center justify-center text-lg p-1.5">❤️</div>
+                            <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full ${v.type === 'guy' ? 'bg-cyan-500/20 text-cyan-300' : 'bg-pink-500/20 text-pink-300'}">
+                                ${v.type === 'guy' ? 'Request ke Cewek' : 'Request ke Cowok'}
+                            </span>
                         </div>
-                        <h4 class="font-serif text-lg font-bold">${v.name}</h4>
+                        <h4 class="font-serif text-base font-bold text-slate-100">${v.name}</h4>
                         <p class="text-xs text-slate-300 mt-1">${v.desc}</p>
                     </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-slate-800">
-                        <span class="text-xs font-bold text-amber-400">🪙 ${v.cost} Coins</span>
-                        <button type="button" onclick="redeemVoucher('${v.name}', ${v.cost})" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition cursor-pointer shadow">Tukar</button>
+                    <div class="flex items-center justify-between pt-4 border-t border-rose-900/60">
+                        <span class="text-xs font-extrabold text-rose-300">❤️ ${v.cost.toLocaleString()} PTS</span>
+                        <button type="button" onclick="redeemPointVoucher('${v.name}', ${v.cost})" class="px-4 py-2 rounded-xl bg-gradient-to-r from-romantic-600 to-spicy-600 hover:from-romantic-500 hover:to-spicy-500 text-white text-xs font-bold transition cursor-pointer shadow">Beli dengan PTS</button>
                     </div>
                 `;
                 grid.appendChild(card);
             });
+
+            const headerCoins = document.createElement('div');
+            headerCoins.className = "md:col-span-2 lg:col-span-3 space-y-2 mt-6 mb-2";
+            headerCoins.innerHTML = `
+                <div class="flex items-center justify-between bg-slate-900/80 p-4 rounded-2xl border border-amber-500/40">
+                    <div>
+                        <h4 class="font-serif text-lg font-bold text-amber-300">🪙 Love Coins — Voucher Aktivitas Berdua</h4>
+                        <p class="text-xs text-slate-400">Gunakan saldo Love Coins bersama untuk tukar voucher hangout & kencan.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-slate-400">Total Coins Bersama:</span>
+                        <div class="text-sm font-bold text-amber-400">${((gameState.p1Coins||0) + (gameState.p2Coins||0)).toLocaleString()} Coins</div>
+                    </div>
+                </div>
+            `;
+            grid.appendChild(headerCoins);
+
+            coinVouchers.forEach(v => {
+                const card = document.createElement('div');
+                card.className = "glass-card rounded-3xl p-6 border border-amber-500/30 flex flex-col justify-between space-y-4 hover:border-amber-400 transition";
+                card.innerHTML = `
+                    <div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-lg mb-3 p-1.5">🪙</div>
+                        <h4 class="font-serif text-base font-bold text-slate-100">${v.name}</h4>
+                        <p class="text-xs text-slate-300 mt-1">${v.desc}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                        <span class="text-xs font-extrabold text-amber-400">🪙 ${v.cost.toLocaleString()} Coins</span>
+                        <button type="button" onclick="redeemCoinVoucher('${v.name}', ${v.cost})" class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold transition cursor-pointer shadow">Tukar Coins</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function redeemPointVoucher(name, cost) {
+            // Check active player score (p1Score or p2Score)
+            const activeScore = gameState.turn === 1 ? gameState.p1Score : gameState.p2Score;
+            const activeName = gameState.turn === 1 ? gameState.p1Name : gameState.p2Name;
+            if (activeScore >= cost) {
+                if (gameState.turn === 1) gameState.p1Score -= cost;
+                else gameState.p2Score -= cost;
+                playSound('win');
+                triggerLoveBomb();
+                alert(`🔥 ${activeName} berhasil merequest "${name}" seharga ${cost.toLocaleString()} PTS! Segera tagih ke pasanganmu bro/sist! 🍷`);
+                initVouchers();
+                updateSnakeTokens();
+                saveGameData();
+            } else {
+                alert(`❌ Love Points (PTS) ${activeName} kurang! Mainkan Ular Tangga, Truth or Dare, atau Kuis lagi untuk kumpulin PTS.`);
+            }
+        }
+
+        function redeemCoinVoucher(name, cost) {
+            const totalCoins = (gameState.p1Coins || 0) + (gameState.p2Coins || 0);
+            if (totalCoins >= cost) {
+                gameState.p1Coins = Math.max(0, gameState.p1Coins - cost);
+                playSound('win');
+                triggerLoveBomb();
+                alert(`🎉 Berhasil menukar voucher aktivitas "${name}" seharga ${cost.toLocaleString()} Coins!`);
+                initVouchers();
+                updateSnakeTokens();
+                saveGameData();
+            } else {
+                alert("❌ Saldo Love Coins bersama kalian kurang!");
+            }
         }
 
         function redeemVoucher(voucherName, cost) {
@@ -1458,6 +1825,7 @@
             });
         }
 
+        window.onresize = () => { drawSnakesAndLaddersSVG(); };
         window.onload = () => {
             loadGameData();
             initSnakeBoard();
