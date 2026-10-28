@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Invitation — Bagus & Bunga</title>
+    <title>Special Romantic Invitation — Bagus & Bunga</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -11,45 +11,107 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
         .glass-card {
-            background: rgba(30, 27, 75, 0.75);
-            backdrop-filter: blur(18px);
-            border: 1px solid rgba(244, 63, 94, 0.4);
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(244, 63, 94, 0.35);
         }
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.4); }
-            50% { box-shadow: 0 0 45px rgba(255, 42, 95, 0.85); }
+            0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.35); }
+            50% { box-shadow: 0 0 50px rgba(255, 42, 95, 0.75); }
         }
-        .glow-spicy { animation: pulseGlow 2.5s infinite ease-in-out; }
+        .glow-spicy { animation: pulseGlow 3s infinite ease-in-out; }
+        
+        /* Animated ambient background glow inspired by hot web games */
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background: #030712;
+        }
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            opacity: 0.45;
+            animation: floatBlob 12s infinite alternate ease-in-out;
+        }
+        .blob-1 {
+            top: -10%;
+            left: -10%;
+            width: 50vw;
+            height: 50vw;
+            background: rgba(225, 29, 72, 0.4);
+            border-radius: 50%;
+        }
+        .blob-2 {
+            bottom: -10%;
+            right: -10%;
+            width: 55vw;
+            height: 55vw;
+            background: rgba(79, 70, 229, 0.35);
+            border-radius: 50%;
+            animation-delay: -4s;
+        }
+        .blob-3 {
+            top: 30%;
+            right: 20%;
+            width: 40vw;
+            height: 40vw;
+            background: rgba(236, 72, 153, 0.3);
+            border-radius: 50%;
+            animation-delay: -8s;
+        }
+        @keyframes floatBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(30px, 40px) scale(1.15); }
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
+<body class="text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
 
-    <div class="fixed inset-0 z-0 pointer-events-none opacity-20 bg-cover bg-center" style="background-image: url('background.jpg');"></div>
-    <div class="fixed inset-0 z-0 pointer-events-none bg-gradient-to-br from-slate-950 via-rose-950/60 to-indigo-950"></div>
+    <!-- Romantic Background Audio (Royalty-free Soft Piano / Lofi) -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="CAS.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Audio Control Button -->
+    <button onclick="toggleAudio()" id="audioBtn" class="fixed top-4 right-4 z-50 bg-slate-900/80 backdrop-blur-md border border-rose-500/40 text-rose-300 hover:text-white px-3.5 py-2 rounded-2xl text-xs font-bold shadow-lg shadow-rose-600/20 transition flex items-center space-x-2 cursor-pointer">
+        <span id="audioIcon">🎵</span>
+        <span id="audioText" class="hidden sm:inline">Putar Musik Romantis</span>
+    </button>
+
+
+    <!-- Immersive Animated Ambient Background -->
+    <div class="ambient-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-[2px]"></div>
+    </div>
 
     <!-- MAIN CONTAINER -->
-    <div class="relative z-10 max-w-md w-full glass-card rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl glow-spicy border border-romantic-500/50">
+    <div class="relative z-10 max-w-md w-full glass-card rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl glow-spicy border border-rose-500/40">
         
-        <!-- SCREEN 0: ROLE SELECTION (Tampilan Awal Pilih Peran) -->
+        <!-- SCREEN 0: ROLE SELECTION -->
         <div id="screenRole" class="space-y-6 py-4">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-rose-600 to-pink-500 mx-auto flex items-center justify-center text-3xl shadow-xl shadow-rose-600/40 animate-bounce">
                 🍷
             </div>
             <div class="space-y-2">
-                <h1 class="font-serif text-3xl font-bold bg-gradient-to-r from-romantic-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Special Invitation</h1>
+                <h1 class="font-serif text-3xl font-bold bg-gradient-to-r from-rose-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Special Invitation</h1>
                 <p class="text-xs text-slate-300">Silakan pilih peranmu untuk melanjutkan:</p>
             </div>
             <div class="space-y-3 pt-2">
                 <button onclick="selectRole('bagus')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-slate-800 hover:from-indigo-500 hover:to-slate-700 text-white font-bold text-sm shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer">
                     <span>👨‍💻</span><span>Masuk Sebagai Bagus (Lihat Hasil)</span>
                 </button>
-                <button onclick="selectRole('bunga')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-bold text-sm shadow-xl shadow-rose-600/40 transition flex items-center justify-center space-x-2 cursor-pointer">
+                <button onclick="selectRole('bunga')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-extrabold text-sm shadow-xl shadow-rose-600/40 transition flex items-center justify-center space-x-2 cursor-pointer">
                     <span>👩</span><span>Masuk Sebagai Bunga (Mulai Cerita)</span>
                 </button>
             </div>
         </div>
 
-        <!-- SCREEN BAGUS: VIEW BAGUS (Hanya Menampilkan Status Hasil) -->
+        <!-- SCREEN BAGUS: VIEW BAGUS -->
         <div id="screenBagus" class="space-y-6 hidden py-2">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <button onclick="backToRoleSelect()" class="text-xs text-slate-400 hover:text-white">⬅️ Ganti Peran</button>
@@ -57,15 +119,14 @@
                 <button onclick="toggleConfig()" class="text-xs text-slate-400 hover:underline">⚙️ DB</button>
             </div>
 
-            <!-- Firebase Config Box (Hidden by default) -->
-            <div id="configBox" class="hidden bg-slate-900 p-3 rounded-xl text-left space-y-1.5 text-[11px]">
+            <div id="configBox" class="hidden bg-slate-900/90 p-3 rounded-xl text-left space-y-1.5 text-[11px] border border-slate-700">
                 <label class="font-bold text-slate-300">Firebase URL:</label>
                 <input type="text" id="firebaseUrlInput" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2 py-1 text-white outline-none">
                 <button onclick="saveFirebaseUrl()" class="w-full py-1.5 bg-rose-600 text-white font-bold rounded-lg">Simpan</button>
             </div>
 
             <div class="space-y-2">
-                <div class="inline-flex items-center space-x-2 bg-rose-500/20 px-3 py-1 rounded-full text-rose-300 text-xs font-semibold">
+                <div class="inline-flex items-center space-x-2 bg-rose-500/20 px-3 py-1 rounded-full text-rose-300 text-xs font-semibold border border-rose-500/30">
                     <span>⏳</span>
                     <span>Memantau Respons Bunga</span>
                 </div>
@@ -77,14 +138,14 @@
                 <div id="bagusStatusText" class="text-xl font-serif font-bold text-amber-300 animate-pulse">Menunggu Jawaban Bunga... ⏳</div>
             </div>
             
-            <button onclick="resetDinnerStatus()" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold border border-slate-700 transition cursor-pointer">
+            <button onclick="resetDinnerStatus()" class="w-full py-3 rounded-xl bg-slate-800/90 hover:bg-slate-700 text-slate-200 text-xs font-bold border border-slate-700 transition cursor-pointer shadow">
                 🔄 Reset Status (Untuk Tes Sebelum Kirim ke Bunga)
             </button>
             
             <p class="text-[11px] text-slate-400 italic">Halaman ini akan otomatis berubah begitu Bunga menekan tombol YES di HP-nya! 🚀</p>
         </div>
 
-        <!-- SCREEN BUNGA: STORY NARRATIVE SLIDER (Next Next Next + Spicy Compliment) -->
+        <!-- SCREEN BUNGA: STORY NARRATIVE SLIDER -->
         <div id="screenBunga" class="space-y-6 hidden py-2 text-left">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <button onclick="backToRoleSelect()" class="text-xs text-slate-400 hover:text-white">⬅️ Kembali</button>
@@ -92,12 +153,10 @@
                 <div></div>
             </div>
 
-            <!-- Narrative Slides -->
-            <div id="slideContent" class="space-y-4 min-h-[200px] flex flex-col justify-center">
+            <div id="slideContent" class="space-y-4 min-h-[220px] flex flex-col justify-center">
                 <!-- Injected via JS -->
             </div>
 
-            <!-- Slide Navigation Buttons -->
             <div class="flex gap-3 pt-2">
                 <button onclick="prevSlide()" id="prevBtn" class="hidden px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs transition cursor-pointer">
                     ⬅️ Sebelumnya
@@ -148,7 +207,6 @@
             stopBagusPolling();
         }
 
-        // --- STORY NARRATIVE FOR BUNGA ---
         let currentSlide = 0;
         const slides = [
             {
@@ -196,7 +254,7 @@
                 content.innerHTML = `
                     <div class="text-center space-y-4 py-2">
                         <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold border border-rose-500/40">${s.tag}</span>
-                        <h3 class="font-serif text-2xl font-bold text-romantic-300">${s.title}</h3>
+                        <h3 class="font-serif text-2xl font-bold text-rose-300">${s.title}</h3>
                         <p class="text-xs text-slate-300 leading-relaxed">${s.text}</p>
                         <div class="pt-4 space-y-3">
                             <button onclick="respondYes()" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-extrabold text-sm shadow-xl shadow-emerald-600/40 transition transform hover:scale-105 cursor-pointer">
@@ -249,7 +307,6 @@
             }
         }
 
-        // --- BAGUS POLLING ---
         let pollingInterval = null;
 
         function startBagusPolling() {
@@ -261,7 +318,6 @@
             if (pollingInterval) clearInterval(pollingInterval);
         }
 
-        
         async function resetDinnerStatus() {
             const payload = { status: 'PENDING', time: new Date().toISOString() };
             try {
@@ -303,6 +359,45 @@
                 }
             }
         }
+    
+        // Audio Toggle Logic
+        let isPlaying = false;
+        const bgMusic = document.getElementById('bgMusic');
+        const audioBtn = document.getElementById('audioBtn');
+        const audioIcon = document.getElementById('audioIcon');
+        const audioText = document.getElementById('audioText');
+
+        // Try autoplay with user interaction fallback
+        function toggleAudio() {
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                audioIcon.innerText = "🔇";
+                audioText.innerText = "Musik Mati";
+                audioBtn.className = "fixed top-4 right-4 z-50 bg-slate-900/80 backdrop-blur-md border border-slate-700 text-slate-400 hover:text-white px-3.5 py-2 rounded-2xl text-xs font-bold shadow-lg transition flex items-center space-x-2 cursor-pointer";
+            } else {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    audioIcon.innerText = "🎵";
+                    audioText.innerText = "Musik Menyala 🎶";
+                    audioBtn.className = "fixed top-4 right-4 z-50 bg-slate-900/80 backdrop-blur-md border border-rose-500/60 text-rose-300 hover:text-white px-3.5 py-2 rounded-2xl text-xs font-bold shadow-lg shadow-rose-600/30 transition flex items-center space-x-2 cursor-pointer animate-pulse";
+                }).catch(e => {
+                    alert("Klik sekali lagi untuk memutar musik ya!");
+                });
+            }
+        }
+
+        // Auto play on first click anywhere on page
+        document.body.addEventListener('click', function initAudio() {
+            if (!isPlaying) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    audioIcon.innerText = "🎵";
+                    audioText.innerText = "Musik Menyala 🎶";
+                }).catch(e => {});
+            }
+        }, { once: true });
+
     </script>
 </body>
 </html>
