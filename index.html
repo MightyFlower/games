@@ -3,73 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Special Romantic Invitation — Bagus & Bunga</title>
+    <title>Special Romantic Letter — Bagus & Bunga</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.78);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(244, 63, 94, 0.35);
+        
+        /* Letter / Envelope Styling */
+        .letter-card {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(22px);
+            border: 2px solid rgba(244, 63, 94, 0.45);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(244, 63, 94, 0.25);
         }
+
+        /* Envelope Opening / Unfolding Animation */
+        @keyframes unfoldLetter {
+            0% {
+                transform: scale(0.7) translateY(40px) rotateX(20deg);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) translateY(0) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+        .animate-unfold {
+            animation: unfoldLetter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 25px rgba(244, 63, 94, 0.35); }
             50% { box-shadow: 0 0 50px rgba(255, 42, 95, 0.75); }
         }
         .glow-spicy { animation: pulseGlow 3s infinite ease-in-out; }
-        
-        /* Animated ambient background glow inspired by hot web games */
-        .ambient-bg {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-            background: #030712;
-        }
-        .blob {
-            position: absolute;
-            filter: blur(80px);
-            opacity: 0.45;
-            animation: floatBlob 12s infinite alternate ease-in-out;
-        }
-        .blob-1 {
-            top: -10%;
-            left: -10%;
-            width: 50vw;
-            height: 50vw;
-            background: rgba(225, 29, 72, 0.4);
-            border-radius: 50%;
-        }
-        .blob-2 {
-            bottom: -10%;
-            right: -10%;
-            width: 55vw;
-            height: 55vw;
-            background: rgba(79, 70, 229, 0.35);
-            border-radius: 50%;
-            animation-delay: -4s;
-        }
-        .blob-3 {
-            top: 30%;
-            right: 20%;
-            width: 40vw;
-            height: 40vw;
-            background: rgba(236, 72, 153, 0.3);
-            border-radius: 50%;
-            animation-delay: -8s;
-        }
-        @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(30px, 40px) scale(1.15); }
-        }
     </style>
 </head>
 <body class="text-slate-100 min-h-screen flex flex-col items-center justify-center p-4 relative overflow-x-hidden">
 
-    <!-- Romantic Background Audio (Royalty-free Soft Piano / Lofi) -->
+    <!-- Background Image Support (background.jpg) + Dark Gradient Overlay -->
+    <div class="fixed inset-0 z-0 pointer-events-none bg-cover bg-center" style="background-image: url('background.jpg');"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none bg-gradient-to-br from-slate-950/90 via-slate-950/75 to-rose-950/80"></div>
+
+    <!-- Romantic Background Audio (CAS.mp3) -->
     <audio id="bgMusic" loop preload="auto">
         <source src="CAS.mp3" type="audio/mpeg">
     </audio>
@@ -80,39 +58,31 @@
         <span id="audioText" class="hidden sm:inline">Putar Musik Romantis</span>
     </button>
 
-
-    <!-- Immersive Animated Ambient Background -->
-    <div class="ambient-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="absolute inset-0 bg-slate-950/40 backdrop-blur-[2px]"></div>
-    </div>
-
-    <!-- MAIN CONTAINER -->
-    <div class="relative z-10 max-w-md w-full glass-card rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl glow-spicy border border-rose-500/40">
+    <!-- MAIN LETTER CONTAINER -->
+    <div id="mainContainer" class="relative z-10 max-w-md w-full letter-card rounded-3xl p-6 sm:p-8 text-center space-y-6 shadow-2xl glow-spicy">
         
-        <!-- SCREEN 0: ROLE SELECTION -->
-        <div id="screenRole" class="space-y-6 py-4">
+        <!-- SCREEN 0: ROLE SELECTION (PILIH PERAN) -->
+        <div id="screenRole" class="space-y-6 py-4 animate-unfold">
             <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-rose-600 to-pink-500 mx-auto flex items-center justify-center text-3xl shadow-xl shadow-rose-600/40 animate-bounce">
-                🍷
+                💌
             </div>
             <div class="space-y-2">
+                <span class="px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold border border-rose-500/40">Surat Spesial Untukmu</span>
                 <h1 class="font-serif text-3xl font-bold bg-gradient-to-r from-rose-300 via-pink-300 to-rose-400 bg-clip-text text-transparent">Special Invitation</h1>
-                <p class="text-xs text-slate-300">Silakan pilih peranmu untuk melanjutkan:</p>
+                <p class="text-xs text-slate-300">Silakan pilih peranmu untuk membuka surat:</p>
             </div>
             <div class="space-y-3 pt-2">
                 <button onclick="selectRole('bagus')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-indigo-600 to-slate-800 hover:from-indigo-500 hover:to-slate-700 text-white font-bold text-sm shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer">
                     <span>👨‍💻</span><span>Masuk Sebagai Bagus (Lihat Hasil)</span>
                 </button>
                 <button onclick="selectRole('bunga')" class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-extrabold text-sm shadow-xl shadow-rose-600/40 transition flex items-center justify-center space-x-2 cursor-pointer">
-                    <span>👩</span><span>Masuk Sebagai Bunga (Mulai Cerita)</span>
+                    <span>👩</span><span>Buka Surat Sebagai Bunga 💌</span>
                 </button>
             </div>
         </div>
 
-        <!-- SCREEN BAGUS: VIEW BAGUS -->
-        <div id="screenBagus" class="space-y-6 hidden py-2">
+        <!-- SCREEN BAGUS: VIEW BAGUS (DASHBOARD PEMANTAU + RESET) -->
+        <div id="screenBagus" class="space-y-6 hidden py-2 animate-unfold">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <button onclick="backToRoleSelect()" class="text-xs text-slate-400 hover:text-white">⬅️ Ganti Peran</button>
                 <span class="text-xs font-bold text-rose-300">👨‍💻 Dashboard Bagus</span>
@@ -142,11 +112,11 @@
                 🔄 Reset Status (Untuk Tes Sebelum Kirim ke Bunga)
             </button>
             
-            <p class="text-[11px] text-slate-400 italic">Halaman ini akan otomatis berubah begitu Bunga menekan tombol YES di HP-nya! 🚀</p>
+            <p class="text-[11px] text-slate-400 italic">Halaman ini akan otomatis berubah begitu Bunga menekan tombol YES di suratnya! 🚀</p>
         </div>
 
-        <!-- SCREEN BUNGA: STORY NARRATIVE SLIDER -->
-        <div id="screenBunga" class="space-y-6 hidden py-2 text-left">
+        <!-- SCREEN BUNGA: STORY NARRATIVE LETTER SLIDER -->
+        <div id="screenBunga" class="space-y-6 hidden py-2 text-left animate-unfold">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <button onclick="backToRoleSelect()" class="text-xs text-slate-400 hover:text-white">⬅️ Kembali</button>
                 <span id="slideIndicator" class="text-xs font-bold text-pink-300">Bagian 1 dari 5</span>
@@ -162,7 +132,7 @@
                     ⬅️ Sebelumnya
                 </button>
                 <button onclick="nextSlide()" id="nextBtn" class="flex-1 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white font-extrabold text-sm shadow-lg shadow-rose-600/40 transition cursor-pointer">
-                    Lanjut ❤️ ➡️
+                    Baca Selanjutnya ❤️ ➡️
                 </button>
             </div>
         </div>
@@ -230,7 +200,7 @@
                 text: "Aku udah nyiapin satu malam spesial buat kita berdua khusus di hari Sabtu besok. Waktunya kita nikmati waktu berkualitas tanpa gangguan."
             },
             {
-                tag: "🌹 Undangan Resmi",
+                tag: "🌹 Surat Undangan",
                 title: "Maukah kamu dinner bareng aku sabtu malam ini?",
                 text: "Tempat cozy, makanan enak, dan pelukan hangat udah menanti kita berdua. Klik tombol di bawah kalau kamu mau ya sayang! ❤️",
                 isFinal: true
@@ -270,7 +240,7 @@
                     <div class="space-y-3 py-2 text-center">
                         <span class="inline-block px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 text-xs font-semibold border border-rose-500/40">${s.tag}</span>
                         <h3 class="font-serif text-2xl font-bold text-slate-100">${s.title}</h3>
-                        <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/80 p-4 rounded-2xl border border-slate-800">${s.text}</p>
+                        <p class="text-xs text-slate-300 leading-relaxed bg-slate-950/80 p-5 rounded-2xl border border-slate-800 shadow-inner">${s.text}</p>
                     </div>
                 `;
             }
@@ -352,7 +322,7 @@
                     }
                 }
             } catch(e) {
-                if (localStorage.getItem('dinner_fallback_yes') === 'YES') {
+                if (localStorage.getItem('dinner_fallback_user') === 'YES' || localStorage.getItem('dinner_fallback_yes') === 'YES') {
                     statusBox.className = "bg-emerald-950/90 p-6 rounded-2xl border border-emerald-500/50 space-y-3 shadow-lg";
                     statusText.className = "text-xl font-serif font-bold text-emerald-300";
                     statusText.innerHTML = "🎉 Bunga MENJAWAB: YES! MAU BANGET! ❤️🥂";
@@ -367,7 +337,6 @@
         const audioIcon = document.getElementById('audioIcon');
         const audioText = document.getElementById('audioText');
 
-        // Try autoplay with user interaction fallback
         function toggleAudio() {
             if (isPlaying) {
                 bgMusic.pause();
@@ -387,7 +356,6 @@
             }
         }
 
-        // Auto play on first click anywhere on page
         document.body.addEventListener('click', function initAudio() {
             if (!isPlaying) {
                 bgMusic.play().then(() => {
@@ -397,7 +365,6 @@
                 }).catch(e => {});
             }
         }, { once: true });
-
     </script>
 </body>
 </html>
